@@ -569,8 +569,162 @@ mySubmit.onclick = function(){
 ```
 
 ## Ternary operator ❓
+* A shortccut to if{} and else{} statements helps to assign a variable based on a condition.
+`condition ? codeIfTrue : codeIfFalse;`
+
+```js
+let age = 21;
+let message = age >= 18 ? "You're an adult" : "You're a minor";
+// This is useful if you want to assign a variable based on a condition.
+```
+
+* It's an alternative to write something like this!
+```js
+let message;
+
+if(age >= 18){
+    message = "You're an adult";
+}else{
+    message = "You're an minor";
+}
+```
+
+* More examples
+```js
+let time = 16;
+let greeting = time < 12 ? "Good morning!" : "Good afternoon!";
+console.log(greeting);
+
+let isStudent = true;
+let message = isStudent ? "You are a student" : "You are NOT a student";
+console.log(message);
+
+// Challenge Round!!!
+// We'll have a purchase amount , as if someone is buying something! If somebodies purchase amount is over 100$ , they get a 10% discount!
+let purchaseAmount = 125;
+let discount = purchaseAmount >= 100 ? 10 : 0;
+console.log(`Your total is $${purchaseAmount - purchaseAmount * (discount / 100)}`);
+```
+
 ## Switches 💡
+- SWITCH = can be an efficient replacement to many else if statements
+```js
+//eg.,
+let day = 1;
+
+if(day == 1){
+    console.log("It is Monday");
+}
+else if(day == 2){
+    console.log("It is Tuesday");
+}
+//...and so on...
+```
+
+```js
+//now with switch!
+let day = 1;
+switch(day){
+    case 1:
+        console.log("It is Monday");
+        break;
+    case 2:
+        console.log("It is Tuesday");
+        break;
+    case 3:
+        console.log("It is Wednesday");
+        break;
+    case 4:
+        console.log("It is Thursday");
+        break;
+    case 5:
+        console.log("It is Friday");
+        break;
+    case 6:
+        console.log("It is Saturday");
+        break;
+    case 7:
+        console.log("It is Sunday");
+        break;
+    default:
+        console.log(`${day} is not a day`); // notice no break req. here!
+}
+```
+
+```js
+// more complex eg.,
+// Instead of values, we can also pass conditions in the switch cases as below!
+let testScore = 92;
+let letterGrade;
+
+switch(true){
+    case testScore >= 90:
+        letterGrade = "A";
+        break;
+    case testScore >= 80:
+        letterGrade = "B";
+        break;
+    case testScore >= 70:
+        letterGrade = "C";
+        break;
+    case testScore >= 60:
+        letterGrade = "D";
+        break;
+    default:
+        letterGrade = "F";
+}
+
+console.log(letterGrade);
+
+```
+
 ## String methods 🧵
+* string methods = allow you to manipulate and work with text (also known as strings)
+* strings have different built-in methods where we can manipulate this text one way or another!
+
+```js
+// eg., 
+let username = "BroCode";
+
+console.log(userName.charAt(0)); // B
+console.log(userName.indexOf("O")); // returns the index of the first occurance of the character!
+console.log(userName.lastIndexOf("o")); // returns the last index of char!
+console.log(userName.length);
+// to trim white space in a string like "     BroCode" or "BroCode     "
+console.log(userName.trim());
+console.log(userName.toUpperCase());
+console.log(userName.toLowerCase());
+console.log(userName.repeat(3)); // will repeat the userName 3 times!
+// we could also do this => userName = userName.repeat(3); console.log(userName);
+// To determine if a string starts with a given character we can use the starts with method, this will retrun a boolean!
+let result = userName.startsWith(" "); // userName = " BroCode";
+console.log(result); // true!
+//This could be useful in if statement as:
+if(result){
+    console.log("Your username can't begin with ' '");
+}else{
+    console.log(userName);
+}
+
+// there's also a .endsWith()
+userName.endsWith(" ");
+// .includes()
+let result = userName.includes(" "); // eg., userName = "Bro Code";
+if(result){
+    console.log("Your username can't include ' '");
+}else{
+    console.log(userName);
+}
+
+// now, we'll create a phone number with - and we'll eliminate all the dashes using the .replaceAll()
+let phoneNumber = "123-456-7890";
+phoneNumber = phoneNumber.replaceAll("-","");
+console.log(phoneNumber);
+// then we have .padStart() method!
+phoneNumber = phoneNumber.padStart(15, "0");
+phoneNumber = phoneNumber.padEnd(15, "0");
+```
+
 ## String slicing ✂️
 ## Method chaining ⛓
 ## Logical operators ❗
