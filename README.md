@@ -726,6 +726,42 @@ phoneNumber = phoneNumber.padEnd(15, "0");
 ```
 
 ## String slicing ✂️
+* String slicing is the process of creating a substring from a portion of another string. (This won't alter the origin string)
+- eg., `string.slice(start, end)`
+
+```js
+// we'll extract the first name and make a new string
+const fullName = "Bro Code";
+
+let firstName = fullName.slice(0, 3); //end is exclusive
+let lastName = fullName.slice(4,8);
+let lastName = fullName.slice(4); //this both works the same! 
+
+let firstChar = fullName.slice(0,1);
+//Negative indices works as well!
+let lastChar = fullName.slice(-1); // e
+let fromLast = fullName.slice(-4); // code
+
+//to make this program more dynamic, we can combine string slicing with indexof method!
+//and in the next example, we're gonna do exactly that!
+```
+
+```js
+const fullName = "Broseph Code";
+
+let firstName = fullName.slice(0, fullName.indexOf(" ")); //Broseph
+let lastName = fullName.slice(fullName.indexOf(" ")); // Code (with a space)
+//To remove padding..
+lastName = fullName.slice(fullName.indexOf(" ")+1); //code 
+```
+
+```js
+//Exercise
+const email = "kishor010@gmail.com";
+
+let userName = email.slice(0, email.indexOf("@"));
+let extension = email.slice(email.indexOf("@")+1);
+```
 ## Method chaining ⛓
 ## Logical operators ❗
 ## Strict equality 🟰
