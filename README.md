@@ -763,6 +763,32 @@ let userName = email.slice(0, email.indexOf("@"));
 let extension = email.slice(email.indexOf("@")+1);
 ```
 ## Method chaining ⛓
+- Method Chaining (Programming technique) = Calling one method after another in one continuous line of code.
+
+- NO METHOD CHAINING DEMONSTRATION
+```js
+let userName = window.prompt("Enter your username:"); // Input:      brOcOdE
+//after this, we'll take the entered username and trim all the white spaces , make the first char UPPERCASE and all other lower and display the output!
+
+userName = userName.trim();
+let letter = userName.charAt(0);
+letter = letter.toUpperCase();
+
+let extraChars = userName.slice(1);
+extraChars = extraChars.toLowerCase();
+userName = letter + extraChars;
+
+console.log(userName); // Output: Brocode
+```
+
+- METHOD CHAINING DEMONSTRATION
+```js
+let userName = window.prompt("Enter your username: ");
+userName = userName.trim().charAt(0).toUpperCase() + userName.trim().slice(1).toLowerCase(); //see the use of string concatination!
+// Though, it helps avoiding extra variables use, but can make it harder to read if it's long! (like here we're pushing it to the limits!)
+
+console.log(userName); // Works the same!
+```
 ## Logical operators ❗
 ## Strict equality 🟰
 ## While loops 🔁
