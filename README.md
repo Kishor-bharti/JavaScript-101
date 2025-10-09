@@ -877,8 +877,106 @@ while(!loggedIn){
 }
 ```
 ## For loops 🔂
+- For loop = repeat some code a LIMITED amount of times
+- eg.,
+```js
+for(let i = 0; i <= 2; ++i){
+    console.log(i);
+}
+```
 ## Number guessing game ↕
+- try playing with the `Math.random()` function and find out why this code below generates a random number between the specified range!
+```js
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+```
+
+- Source code:
+```js
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+
+let attempts = 0;
+let guess;
+let running = true;
+
+while(running){
+    guess = window.prompt(`Guess a number between ${minNum} - ${maxNum}`);
+    guess = Number(guess);
+
+    if(isNaN(guess)){
+        window.alert("Please enter a valid number");
+    }
+    else if(guess < minNum || guess > maxNum){
+        window.alert("Please enter a valid number");
+    }
+    else{
+        attempts++; //what if we just write attempts; here??
+        if(guess < answer){
+            window.alert("TOO LOW! TRY AGAIN!");
+        }
+        else if(guess > answer){
+            window.alert("TOO HIGH! TRY AGAIN!");
+        }
+        else{
+            window.alert(`CONGRATS! ${answer} is the correct number! It took you ${attempts} attempts to guess!);
+            running = false;
+        }
+    }
+}
+
+
+```
+
 ## Functions 📞
+- Function = A section of reusable code. 
+- Declare code once, use it whenever you want.
+- Call the function to execute that code.
+- eg., 
+
+```js
+function happyBirthday(){
+    console.log("Happy Birthday to you");
+    console.log("Happy Birthday to you");
+    console.log("Happy Birthday dear you");
+    // console.log(`Happy Birthday dear ${username}, You're ${age} year old!`); // this will raise an Uncaught ReferenceError as username is not defined! You can use function arguments for this! but for that you'll need to set parameters! let's do this now in the next code snippet!
+    console.log("Happy Birthday to you");
+}
+
+happyBirthday();
+happyBirthday(); // shows code reusability!
+
+```
+
+```js
+function happyBirthday(username, age){ // Order of parameters matters here! (try switching username and age here and see!)
+    console.log("Happy Birthday to you");
+    console.log("Happy Birthday to you");
+    console.log(`Happy Birthday Dear ${username}`);
+    console.log("Happy Birthday to you");
+    console.log(`You are ${age} year old`);
+}
+
+happyBirthday("Brocode", 25);
+happyBirthday("Kishor", 22);
+
+```
+- Return keyword:
+
+```js
+function add(x,y){
+    let result = x + y;
+    return result; // or shortcut: return x+y;
+}
+
+let answer = add(2,3);
+console.log(answer);
+// or console.log(add(2,3));
+
+// similarly, make subtract, multiply, divide and isEven, isValidEmail functions yourself!
+```
 ## Variable scope 🏠
 ## Temperature conversion program 🌡️
 ## Arrays 🗃
