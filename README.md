@@ -790,6 +790,39 @@ userName = userName.trim().charAt(0).toUpperCase() + userName.trim().slice(1).to
 console.log(userName); // Works the same!
 ```
 ## Logical operators ❗
+- logical operators = used to combine or manipulate boolean values (true or false)
+
+| Logical Operator | Symbol |
+|------------------|---------|
+| AND              | &&      |
+| OR               | \|\|    |
+| NOT              | !       |
+
+- eg,
+```js
+const temp = 20;
+
+if(temp > 0 && temp <= 30){
+    console.log("The weather is GOOD");
+}else{
+    console.log("The weather is BAD");
+}
+
+if(temp <= 0 || temp > 30){
+    console.log("The weather is BAD");
+}else{
+    console.log("The weather is GOOD");
+}
+
+const isSunny = false;
+
+if(!isSunny){
+    console.log("It is CLOUDY");
+}else{
+    console.log("It is SUNNY");
+}
+```
+
 ## Strict equality 🟰
 ## While loops 🔁
 ## For loops 🔂
