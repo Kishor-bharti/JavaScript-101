@@ -824,7 +824,58 @@ if(!isSunny){
 ```
 
 ## Strict equality 🟰
+- = assignmetn operator
+- == comparison operator (compare if values are equal)
+- === strict equality operator (compare  values & datatype are equal)
+- != Inequality operator
+- !== strict inequality operator
+
 ## While loops 🔁
+- while loop = repeat some code WHILE some condition is true
+
+```js
+let username = "";
+
+while(username === ""){
+    console.log(`You didn't enter your name`);
+}
+console.log(`Hello ${username}`);
+//but this block of code runs forever and doesn't do anything! so , we'll re-write this code!
+```
+
+```js
+let username ="";
+
+while(username === ""){
+    username = window.prompt("Enter your name");
+}
+console.log(`Hello ${username}`); // but it will print null if pressed cancel
+//to fix that, we can:
+/*
+    update the while loop as:
+    while(username === "" || usernamm === null)
+*/
+```
+- Do while loop is an another variation of while loop (study yourself!)
+
+```js
+// another example
+let loggedIn = false;
+let username;
+let password;
+
+while(!loggedIn){
+    username = window.prompt("Enter your username");
+    password = window.prompt(`Enter your password`);
+
+    if(username === "myUsername" && password === "myPassword"){
+        loggedIn = true;
+        console.log("You are logged in!");
+    }else{
+        console.log("Invalid credentials! Please try again!");
+    }
+}
+```
 ## For loops 🔂
 ## Number guessing game ↕
 ## Functions 📞
