@@ -978,6 +978,33 @@ console.log(answer);
 // similarly, make subtract, multiply, divide and isEven, isValidEmail functions yourself!
 ```
 ## Variable scope 🏠
+- variable scope = where a variable is recognized and accessible (local vs global)
+- variables need to have unique names
+```js
+let x = 1;
+let x = 2;
+//doing this will raise an error : caught SyntaxError: Identifier 'x' has already been declared
+// We cannot declare variables with the same name until the scope is different!
+```
+
+```js
+function1(); // invoke function1 before declaration! (valid in js!)
+function2(); // functions are Hoisted (but not the Function Expression or Arrow Functions!)
+
+function function1(){
+    let x = 1;
+    console.log(x);
+}
+
+function function2(){
+    let x = 2; // here in this example, we can declare x since it's in different scope! (This is known as Local scope)
+    console.log(x);
+}
+
+```
+- Analogy: Think of functions to houses and you can't see inside it! So, the local scope variables, only visible from inside of a house (ie, function) but a global variable is like a tree outside on the road, so every house can see it!
+
+- It is not recommended to have a lot of global variables as it is accessible to every functions and are mutable which makes debugging a tedious task later! (Just like how functional programming avoids having global mutable variables!)
 ## Temperature conversion program 🌡️
 ## Arrays 🗃
 ## Spread operator 📖
