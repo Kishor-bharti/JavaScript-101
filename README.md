@@ -1433,6 +1433,38 @@ function getLongWords(element){
 }
 ```
 ## reduce() ♻
+- reduce() = reduce the elements of an array to a single value
+- it also needs a callback, just like the above two!
+```js
+//eg. 1,
+const prices = [5, 30, 10, 25, 15, 20];
+
+const total = prices.reduce(sum); // callback required!
+
+console.log(`$${total.toFixed(2)}`);
+
+function sum(accumulator, element){ // we could also write previous , next here!
+    return accumulator + element;
+}
+```
+```js
+//eg. 2,
+const grades = [75, 50, 90, 80, 65, 95];
+
+const maximum = grades.reduce(getMax); //95
+const minimum = grades.reduce(getMin); //65
+
+console.log(maximum);
+console.log(minimum);
+
+function getMax(accumulator, element){
+    return Math.max(accumulator, element);
+}
+
+function getMin(accumulator, element){
+    return Math.min(accumulator, element);
+}
+```
 ## Function expressions 🐣
 ## Arrow functions 🎯
 ## JavaScript Objects 🧍
