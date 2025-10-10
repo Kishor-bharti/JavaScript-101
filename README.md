@@ -1038,6 +1038,53 @@ fruits.sort(); // sort elements in alphabetical order!
 fruits.sort().reverse(); // for reverse order!
 ```
 ## Spread operator 📖
+- Spread operator = ... allows an iterable such as an array or string to be expanded into separate elements (unpacks the elements)
+- eg.,
+```js
+let numbers = [1,2,3,4,5];
+let maximum = Math.max(numbers); // to find the max
+
+console.log(maximum); // NaN ❌
+// for this we would need to use the spread operator!
+maximum = Math.max(...numbers);
+console.log(maximum); // 5 ✔️
+console.log(let minimum = Math.min(...numbers)); // 1
+```
+- we can also do this with strings!
+```js
+let username = "Bro Code";
+let letters = [...username];
+
+console.log(letters); // ['B', 'r', 'o', ' ' , 'C', 'o' , 'd' , 'e']
+
+letters = [...username].join("-"); // this joins the characters into string and also insert - in between them! Output: B-r-o- -C-o-d-e
+```
+
+- Now, we will create a shallow copy of an array using the spread operator!
+- Shallow copy = A different data structure but contains identical values!
+- Shallow copy doesn't mean editing one will reflect in both! eg., 
+```js
+// test.js
+let fruits = ["apple", "orange", "banana"];
+let newFruits = [...fruits];
+
+newFruits[0] = "mango";
+
+console.log(fruits);
+console.log(newFruits);
+```
+
+```js
+// we can use the spread operator to combine arrays!
+let fruits = ["Apple", "Orange", "Banana"];
+let vegies = ["carrots", "celery", "potatoes"];
+
+let foods = [...fruits, ...vegies];
+
+console.log(foods);
+// it also have this ability to append new data in the array, as:
+vegies = [...fruits, ...vegies, "eggs", "milk"];
+```
 ## Rest parameters 🗄
 ## Dice Roller program 🎲
 ## Random password generator 🔑
