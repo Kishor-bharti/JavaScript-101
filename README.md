@@ -1272,6 +1272,60 @@ sum(displayPage, 2, 3); // DOM: 5
 
 ```
 ## forEach() ➿
+- forEach() = method used to iterate over the elements of an array and apply a specified function (callback) to each element
+- we have an array, we can use the built-in for each method of arrays and send each element through a callback to a function
+- `array.forEach(callback)` element, index, array are provided 
+- eg.,
+```js
+let numbers = [1,2,3,4,5];
+
+numbers.forEach(display); //where is the element argument??
+
+function display(element){
+    console.log(element);
+}
+// output: 1\n2\n3\n4\n5
+```
+- Believe it or not, the element argument is provided for us with the for each method!
+- Behind the scenes, the forEach method will provide to a callback an element, index and array argument.
+- An element for the current element that we're on when looping through this array, an index that keeps track of the current index number and the location of the array itself, that in this case it would be numbers!
+- That's why when we pass the display function as a callback, we're already provided with an element argument behind the scenes
+- Now, we'll double the elements of the array before displaying it, in this next example!
+
+```js
+// eg. 2,
+let numbers = [1,2,3,4,5];
+
+numbers.forEach(double);
+numbers.forEach(display);
+
+function double(element, index, array){ //these are already provided
+    array[index] = element * 2;
+}
+
+function display(element){
+    console.log(element);
+}
+```
+
+```js
+//eg. 3, more practical method!
+let fruits = ["apple", "orange", "banana", "coconut"];
+
+fruits.forEach(upperCase);
+fruits.forEach(display);
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase(); // rem: methods alway belongs to something where functions are Standalone
+}
+
+// similarly, make lowerCase() and capitalize() functions!
+
+function display(element)){
+    console.log(element);
+}
+```
+
 ## map() 🗺
 ## filter() 🚰
 ## reduce() ♻
