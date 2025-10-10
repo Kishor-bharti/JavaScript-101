@@ -1165,6 +1165,112 @@ console.log(fullName);
 ## Random password generator 🔑
 - Check the source code in video
 ## Callbacks 🤙
+- callback = a function that is passed as an argument to another function.
+- It is used to handle asynchronous operations:
+1. Reading a file
+2. Network requests
+3. Interacting with databases
+- These activities take some time to complete. Now with JavaScript, we don't necessarily wait for a process to finish before continuing with the rest of the program. For example, If we were to read a file, if it takes a long time to read that file, JavaScript might continue on with the rest of the program. We might attempt to display the contents of that file before we're finished reading it. That's where callbacks come in! 
+- It's like we're telling JavaScript: `Hey, when you're done, call this next`.
+- `When you're done reading the files , then display the contents only after that process is complete`
+```js
+//eg. 1,
+hello();
+goodBye();
+
+function hello(){
+    console.log("Hello!");
+}
+function goodBye(){
+    console.log("Goodbye!");
+}
+
+//Output: Hello!\nGoodbye!
+
+//now, suppose for some reason the hello() takes some time to execute! Js won't wait for it and execute the next line and print Goodbye!\nHello! 
+// we'll use setTimeOut() to demonstrate that! =>
+
+{
+    hello();
+    goodBye();
+
+    function hello(){
+        setTimeout(function(){
+            console.log("Hello!");
+        },3000);
+    }
+    function goodBye(){
+        console.log("Goodbye!");
+    }
+    // Output: Goodbye! *(after 3s) \nHello!
+    // But the desired result was the other way around!
+    // this is where callback function comes in picture and could be used to acheive the desired result!
+}
+
+{
+    //now with callback()
+    hello(goodBye); // using hello(goodBye()); will immediately invoke the goodBye function!
+
+    hello(leave);
+    hello(wait);
+
+    function hello(callback){
+        console.log("Hello!");
+        callback();
+    }
+
+    function wait(){
+        console.log("Wait!");
+    }
+
+    function leave(){
+        console.log("Leave!");
+    }
+
+    function goodbye(){
+        console.log("Goodbye!");
+    }
+
+    /*
+        Output: 
+        Hello!
+        Goodbye!
+        Hello!
+        Leave!
+        Hello!
+        Wait!
+    */
+}
+```
+- So, by using callbacks we are guaranteeing that the function passed in will execute next!
+
+```js
+// eg. 2,
+
+//invoke
+sum(displayConsole, 1, 2); // output: 3
+
+function sum(callback, x, y){
+    let result = x + y;
+    callback(result); //invoke
+}
+
+function displayConsole(result){
+    console.log(result);
+}
+
+//lets create a function to display result on the webpage (DOM)
+/*
+    (required!)
+    <h1 id="myH1"></h1>
+*/
+function displayPage(result){
+    document.getElementById("myH1").textContent = result;
+}
+
+sum(displayPage, 2, 3); // DOM: 5
+
+```
 ## forEach() ➿
 ## map() 🗺
 ## filter() 🚰
