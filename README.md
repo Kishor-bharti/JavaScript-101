@@ -1006,7 +1006,37 @@ function function2(){
 
 - It is not recommended to have a lot of global variables as it is accessible to every functions and are mutable which makes debugging a tedious task later! (Just like how functional programming avoids having global mutable variables!)
 ## Temperature conversion program 🌡️
+- Check the source code in video!
 ## Arrays 🗃
+- Array = a variable like structure that can hold more than 1 value
+- eg.,
+```js
+let fruits = ["apple", "orange", "banana"];
+console.log(fruits); 
+// output: ['apple', 'orange' , 'banana']
+console.log(fruits[1]); // orange
+console.log(fruits[10]); //if you try to access an index that does not exists yet, it will print undefined!
+//we can also modify elements at a index as:
+fruits[1] = "coconut";
+// although, we can add a new element like avoid but we can also use the built-in method .push
+fruits.push("mango");
+fruits.pop(); // removes elements from last!
+fruits.unshift("Guava"); // add an element to the beginning
+fruits.shift(); // to remove an element from the beginning
+fruits.length; // built-in method to count the number of elements in an array! (not .length has no parenthesis()! Why?)
+let index  = fruits.indexOf("apple"); // return the index of "element" if found! and -1 if not found! (which can be used in if(statement)!)
+
+for(let i=0; i<fruits.length; ++i){
+    console.log(fruits[i]);
+}
+//enhanced for loop =>
+for(let fruit of fruits){
+    console.log(fruit);
+}
+
+fruits.sort(); // sort elements in alphabetical order!
+fruits.sort().reverse(); // for reverse order!
+```
 ## Spread operator 📖
 ## Rest parameters 🗄
 ## Dice Roller program 🎲
