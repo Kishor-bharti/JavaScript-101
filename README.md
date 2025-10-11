@@ -1466,6 +1466,92 @@ function getMin(accumulator, element){
 }
 ```
 ## Function expressions 🐣
+- Function declaration = define a reusable block of code that performs a specific task
+```js
+//eg., 
+function hello(){
+    console.log("Hello");
+}
+```
+- Function expression = a way to define functions as values or variables
+```js
+//eg. passing a function expression as a variable, 
+const hello = function(){
+    console.log("Hello");
+}
+
+hello(); // invoke to use that hello() function!
+
+//eg. passing a function expression as a value,
+function hello(){
+    console.log("Hello");
+}
+
+setTimeout(hello, 3000); //setTimeout(callback, delay);
+
+// instead of a callback, we will pass a function expression as a value to this function!
+setTimeout(function(){
+    console.log("Hello again!");
+}, 3000);
+```
+
+```js
+//eg. 2, 
+{
+    // here in this block of code, we are using the function declaration!
+    const numbers = [1, 2, 3, 4, 5];
+    const squares = numbers.map(square); // taking a callback
+    
+    console.log(squares);
+    
+    function square(element){
+        return Math.pow(element, 2);
+    }
+}
+
+{
+    // In this block of code, we have used the function expression passed as the value!
+    const numbers = [1, 2, 3, 4, 5];
+    const squares = numbers.map(function(element){
+        return Math.pow(element, 2);
+    });
+
+    console.log(squares); // works the same!
+
+/*
+    Note: We don't need to think of a function name, one of the benefits of doing this is that we're not polluting the global Name space with function names. We're only going to be using this  function once, there's no need to declare a function!    
+*/
+}
+
+{
+    //similarly, make the cube function with function expression!
+}
+```
+
+```js
+// Now, function expressions with filter!
+const numbers = [1, 2, 3, 4, 5];
+
+const evenNums = numbers.filter(function(element){
+    return element % 2 === 0;
+});
+
+// make oddNums yourself!
+
+console.log(evenNums);
+```
+
+```js
+//Now, function expression with reduce!
+const numbers = [1, 2, 3, 4, 5];
+
+const total = numbers.reduce(function(accumulator, element){
+    return accumulator + element;
+});
+
+console.log(total);
+```
+- In the next topic, we'll make this even shorter! using the arrow functions!
 ## Arrow functions 🎯
 ## JavaScript Objects 🧍
 ## What is THIS 👈
