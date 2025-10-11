@@ -1552,6 +1552,13 @@ const total = numbers.reduce(function(accumulator, element){
 console.log(total);
 ```
 - In the next topic, we'll make this even shorter! using the arrow functions!
+
+- More Topics to discuss:
+1. Callbacks in asynchronous operations 
+2. Higher-Order functions
+3. Closures
+4. Event Listeners
+(We'll discuss it later!)
 ## Arrow functions 🎯
 ## JavaScript Objects 🧍
 ## What is THIS 👈
