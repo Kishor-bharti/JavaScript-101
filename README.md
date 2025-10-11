@@ -1816,6 +1816,71 @@ console.log(`Total price (with tax): $${total.toFixed(2)}`);
 // similarly, create more products!
 ```
 ## STATIC keyword ⚡
+- Static = keyword that defines properties or methods that belong to a class itself rather than the objects created from that class (class own anything static, not the objects)
+- We're going to create a class for Math utilities
+```js
+class MathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2;
+    }
+
+    static getCircumference(radius){
+        return 2 * this.PI * radius;
+    }
+
+    static getArea(radius){
+        return this.PI * radius * radius;
+    }
+}
+
+console.log(MathUtil.PI); // here, we didn't need to create an object for class MathUtil in order to use that PI property of it! (If we call it via an object, it'll say undefined!)
+// anything declared static, belong to the class itself! Not to the objects!
+
+console.log(MathUtil.getDiameter(10)); // 20
+console.log(MathUtil.getCircumference(10)); // 62.8318
+console.log(MathUtil.getArea(10)); // 314.159
+```
+
+```js
+// In this example, we'll have a mix of regular properties and methods and static property and methods
+class User{
+
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+
+    static getUserCount(){
+        console.log(`There are ${User.userCount}  users online`); // here , this.userCount also does the same thing!
+    }
+
+    sayHello(){
+        console.log(`Hello! My username is ${this.username}`);
+    }
+}
+
+const user1 = new User("Spongebob");
+const user2 = new User("Patrick");
+const user3 = new User("Sandy");
+
+// console.log(user1.username);
+// console.log(user1.userCount); // this will print undefined, as static properties do not belong to the object!
+
+console.log(user1.username);
+console.log(user2.username);
+console.log(user3.username);
+
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();
+console.log(User.userCount); // prints : 1
+User.getUserCount();
+```
+
 ## Inheritance 🐇
 ## SUPER keyword 🦸‍♂️
 ## Getters & Setters 📐
