@@ -1559,7 +1559,90 @@ console.log(total);
 3. Closures
 4. Event Listeners
 (We'll discuss it later!)
+
 ## Arrow functions 🎯
+- Arrow functions = a concise way to write function expressions, good for simple functions that you use only once
+- `(parameters) => some code`
+```js
+{
+    // Normal way!
+    hello();
+    
+    function hello(){
+        console.log("Hello");
+    }
+}
+{
+    // we'll first create a function expression and then convert it to an arrow function!
+    const hello = function(){
+        console.log("Hello");
+    }
+
+    hello(); // Invoked below declaration because function expressions are not hoisted!
+}
+{
+    // Now with arrow function => 
+    const hello = () => console.log("Hello");
+
+    hello(); //works the same!
+}
+{
+    //WE CAN ALSO PASS ARGUMENTS IN IT! 
+    const hello = (name) => console.log(`Hello ${name}`);
+
+    hello("Kishor"); // prints: Hello Kishor
+}
+{
+    // within your code, if you want to insert more than one statement, wrap them in {}
+    const hello= (name, age) => { //{} used for more statements, i.e, two console.log()'s
+        console.log(`Hello ${name}`);
+        console.log(`You're ${age} year old!`);
+    }
+    // Notice how we used multiple parameters this time!
+    hello("Kishor", 22);
+}
+```
+
+```js
+{
+    // another example
+    setTimeout(hello, 3000); //setTimeout(callback, delay)
+
+    function hello(){
+        console.log("Hello");
+    }
+}
+
+{
+    // Now with function expression =
+    setTimeout(function(){
+        console.log("Hello");
+    },3000);
+}
+
+{
+    // Now with arrow function =>
+    setTimeout(() => console.log("Hello"), 3000); // works the same!    
+}
+```
+
+```js
+// now, we'll use arrow functions with map, filter, and reduce!
+const numbers = [1, 2, 3, 4, 5];
+
+const squares = numbers.map((element) => Math.pow(element, 2));
+const cubes = numbers.map((element) => Math.pow(element, 3));
+const evenNums = numbers.filter((element) => element % 2 === 0); // we don't necessarily need to return statement if we have only one line of code! (like here!)
+const oddNums = numbers.filter((element) => element % 2 !== 0);
+const total = numbers.reduce((accumulator, element) => accumulator + element);
+
+console.log(squares);
+console.log(cubes);
+console.log(evenNums);
+console.log(oddNums);
+console.log(total);
+```
+
 ## JavaScript Objects 🧍
 ## What is THIS 👈
 ## Constructors 🛠
