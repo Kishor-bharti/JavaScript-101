@@ -1724,6 +1724,31 @@ person1.eat(); // output:  is eating undefined
 - when you use `this` within an arrow function, it's making a reference to that window object still
 - Our window object does have a name, that's why it's appearing empty but favFood is undefined because our window object doesn't have a favFood property!
 ## Constructors 🛠
+- constructor = special method for defining the properties and methods of objects
+```js
+// In previous examples, we have learn to create objects and assign properties to each of those object, but what if we had to make a lot of objects?? There the constructor comes into picture! WE WILL USE CONSTRUCTORS TO CONSTRUCT MULTIPLE OBJECTS AUTOMATICALLY!
+
+// First we'll make a function
+function Car(make, model, year, color){ // DO PAY ATTENTION TO THE CAPITALISATION!
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color,
+    this.drive = function(){console.log(`You drive the ${this.model}`)}
+}
+// Our Car constructor is a reusable method, where we can define the properties and methods of objects we create
+// To use this constructor, we will create an instance of an object
+
+const car1 = new Car("Mclaren", "P1", 2025, "Orange"); // Car() is a special method, we'll need to pass in some arguments!
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+car1.drive();
+
+//similarly, make more cars!
+```
 ## Classes 🏭
 ## STATIC keyword ⚡
 ## Inheritance 🐇
