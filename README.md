@@ -1882,6 +1882,76 @@ User.getUserCount();
 ```
 
 ## Inheritance 🐇
+- inheritance = allows a new class to inherit properties and methods from an existing class (parent -> child) helps with code reusability
+- It's kind of like a family tree!
+```js
+class Animal{
+    alive = true; // Notice bro didn't wrote let or const here?? why??
+
+    eat(){
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep(){
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+class Rabbit extends Animal{
+    name= "rabbit";
+}
+class Fish extends Animal{
+    name= "fish";
+}
+class Hawk extends Animal{
+    name= "hawk";
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+//Ok, lets see if our rabbit is alive
+
+// rabbit.alive = false;
+console.log(rabbit.alive); // true
+rabbit.eat();
+rabbit.sleep();
+
+console.log(fish.alive); // true
+fish.eat();
+fish.sleep();
+
+console.log(hawk.alive); // true
+hawk.eat();
+hawk.sleep();
+```
+- Our children classes of Rabbit , Fish and Hawk al inherited the properties and methods of the parent Animal class.
+- This helps in code reusability! (because, we don't need to declare all of these properties and methods within each of the children classes!)
+- Not only that, the children can have their own unique properties and methods!
+- eg., Rabbits will be able to run, but fish and hawk cannot be! (that's a method that only belong to the Rabbit class)
+
+```js
+class Rabbit extends Animal{
+    name= "rabbit";
+    run(){
+        console.log(`This ${this.name} is running!`);
+    }
+}
+}
+class Fish extends Animal{
+    name= "fish";
+    swin(){
+        console.log(`This ${this.name} is swimming!`);
+    }
+}
+class Hawk extends Animal{
+    name= "hawk";
+    fly(){
+        console.log(`This ${this.name} is flying!`);
+    }
+}
+```
+
+
 ## SUPER keyword 🦸‍♂️
 ## Getters & Setters 📐
 ## Destructuring 💥
