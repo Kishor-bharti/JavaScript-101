@@ -2104,6 +2104,76 @@ fish.swim();
 hawk.fly();
 ```
 ## Getters & Setters 📐
+- getter = special method that makes a property readable
+- setter = special method that makes a property writeable
+- we can use them to validate and modify a value when reading/writing a property
+- It helps with validation when creating an object or updating one of its properties
+- eg.,
+
+```js
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+}
+
+const rectangle = new Rectangle(-1000000, "pizza");
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+// output: -100000\npizza
+```
+- We don't want people to enter in garbage values like these in our program! To avoid that, we use getters and setters (for input validation!)
+- setters : When setting one of these properties (width, height) either initially through a Constructor or updating one of them later, such as setting the width or height equal to some value, we can go to a setter first!
+
+```js
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){ // this will be a special type of method!
+        if(newWidtt > 0){
+            this._width = newWidth; // using the _underscore prefix, it tells other developers that this is a private property (you shouldn't touch it at all!) 
+            // you could say that this private property of width is different than our standard width property!
+        }else{
+            console.error("Width must be a positive number"); //and it makes the width value `undefined` in the console window (if used a negative width!)
+        }
+    }
+
+    set height(newHeight){ // this will be a special type of method!
+        if(newWidtt > 0){
+            this._height = newHeight; // using the _underscore prefix, it tells other developers that this is a private property (you shouldn't touch it at all!) 
+            // you could say that this private property of width is different than our standard width property!
+        }else{
+            console.error("Height must be a positive number"); //and it makes the width value `undefined` in the console window (if used a negative width!)
+        }
+    }
+
+    // NOW EVEN WITH A VALID NUMBERS, THE OUTPUT WILL STILL BE UNDEFINED! THAT'S WHERE THE GETTER METHOD COMES IN!
+
+    get width(){
+        return this._width;
+    }
+
+    get height(){
+        return this._height;
+    }
+
+    // Every thing works fine now!
+
+    // WITH GETTERS WE CAN EVEN USE THE PROPERTY ACCESSOR THAT DOT TO ACCESS A PROPERTY THAT DOESN'T NECESSARILY EXIST! FOR EXAMPLE:
+
+    get area(){
+        return this._width * this._height;
+    }
+}
+
+```
+- See the second example in the video!
+
 ## Destructuring 💥
 ## Nested objects 📫
 ## Arrays of objects 🍎
