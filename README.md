@@ -1953,6 +1953,97 @@ class Hawk extends Animal{
 
 
 ## SUPER keyword 🦸‍♂️
+- super = keyword is used in classes to call the constructor or access the properties and methods of a parent (aka superclass)
+- `this = this object`
+- `super = the parent`
+```js
+class Animal{
+    constructor(){
+
+    }
+}
+class Rabbit extends Animal{
+    constructor(name, age, runSpeed){
+        super();
+        this.name = name;
+        this.age = age;
+        this.runSpeed = runSpeed;
+    }
+}
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super();
+        this.name = name;
+        this.age = age;
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Hawk extends Animal{
+    constructor(name, age, flySpeed){
+        super();
+        this.name = name;
+        this.age = age;
+        this.flySpeed = flySpeed;
+    }
+}
+
+const rabbit = new Rabbit("rabbit", 1, 25);
+const fish = new Fish("fish", 2, 12);
+const hawk = new Hawk("hawk", 3, 50);
+```
+- Running the above code will result in : `ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor`
+- To resolve it, use the `super()` keyword! (un-comment that super() part in each of those constructors!)
+- So, the JS is telling us, before using `this` keyword, call the constructor of the parent class!
+- So, one of the benefits of using Constructors is that if there's any properties that the children all share in common, we can send them to the Constructor of the parent.
+- In the above code, as you can see , we are repeating ourselves a lot! Each of these children classes has a name and age property that we're assigning to each! We would like to follow the `DRY principle` `DO NOT REPEAT YOURSELF` (Next, we will do just that!)
+
+```js
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+}
+class Rabbit extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age); // we need to pass in the arguments to the parent constructor!
+        this.runSpeed = runSpeed;
+    }
+}
+
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Hawk extends Animal{
+    constructor(name, age, flySpeed){
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
+}
+
+const rabbit = new Rabbit("rabbit", 1, 25);
+const fish = new Fish("fish", 2, 12);
+const hawk = new Hawk("hawk", 3, 50);
+
+
+console.log(rabbit.name);
+console.log(rabbit.age);
+console.log(rabbit.runSpeed);
+
+console.log(fish.name);
+console.log(fish.age);
+console.log(fish.runSpeed); // undefined as fishes don't have legs so they can't run , but they do have a swimSpeed!
+console.log(fish.swimSpeed);
+
+// works the same!
+// So, all the sharing properties of children, can be passed in the parent class constructor for avoiding redundant code!
+```
 ## Getters & Setters 📐
 ## Destructuring 💥
 ## Nested objects 📫
