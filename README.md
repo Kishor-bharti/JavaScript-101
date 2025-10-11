@@ -3,17 +3,19 @@
 > console.log("Let's Begin!");
 BY BroCode [watch](https://www.youtube.com/watch?v=lfmg-EJ8gm4&t=4618s)
 
-## Starting...
-* JavaScript is a programming lang used to create Dynamic and Interactive web pages!
-* Js runs on web browsers
-* By using JS, we use respond to user actions and transform user input whenever somebody interacts with our site (eg. Calculator app!)
+> Watch the above video and follow through these notes for better understanding 
 
-`creates a folder named website and html, css and js files for structure , styles and actions!`
+## Starting...
+* JavaScript is a programming language, used to create Dynamic and Interactive web pages!
+* Js runs on web browsers
+* By using JS, we respond to user actions and transform user input whenever somebody interacts with our site (eg. Calculator app!)
+
+`create a folder named website and html, css and js files for structure , styles and actions!`
 
 ```html
 <link rel="stylesheet" href="style.css">
 <script src="index.js"></script>
-<p>Don't forget these two tags!</p>
+<p>Don't forget to use these two tags!</p>
 ```
 * We put our JavaScript tag at the bottom of the body tag just to make sure atleast our html gets render in case of any error in the JS code!
 
@@ -1750,6 +1752,69 @@ car1.drive();
 //similarly, make more cars!
 ```
 ## Classes 🏭
+- class = (ES6 feature) provides a more structured and cleaner way to work with objects compared to traditional constructor functions
+- eg., static keyword, encapsulation, inheritance
+```js
+// here in this eg., we have used the constructor
+function Product(name, price){
+    this.name = name;
+    this.price = price;
+
+    this.display = function(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price.toFixed(2)}`);
+    };
+
+    this.calculateTotal = function(salesTax){
+        return this.price + (this.price * salesTax);
+    }
+}
+
+const salesTax = 0.05;
+
+const product1 = new Product("Shirt", 19.99);
+const product1 = new Product("Pants", 22.50);
+const product1 = new Product("Underwear", 100.00);
+
+product1..displayProduct();
+
+const totalPrice = product1.calculateTotal(salesTax);
+
+console.log(`Total Price (with tax): $${totalPrice.toFixed(2)}`);
+```
+
+```js
+// we'll use classes to do the same thing but in much better/ efficient way!
+class Product{ // our class will serve as a blueprint!
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    //inside of a class, we don't need to use the `function` keyword!
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price.toFixed(2)}`);
+    }
+
+    calculateTotal(salesTax){
+        return this.price +(this.price * salesTax);
+    }
+}
+
+const salesTax = 0.05; // that is , 5%
+
+// lets create some Product objects
+const product1 = new Product("shirt", 19.99); // we use the `new` keyword to use the constructor of an object! (eg., const array = new Array(1,2,3)); )
+
+product1.displayProduct();
+
+const total = product1.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total.toFixed(2)}`);
+
+
+// similarly, create more products!
+```
 ## STATIC keyword ⚡
 ## Inheritance 🐇
 ## SUPER keyword 🦸‍♂️
