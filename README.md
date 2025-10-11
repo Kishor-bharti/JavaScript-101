@@ -3,7 +3,7 @@
 > console.log("Let's Begin!");
 BY BroCode [watch](https://www.youtube.com/watch?v=lfmg-EJ8gm4&t=4618s)
 
-> Watch the above video and follow through these notes for better understanding 
+***Watch the above video and follow through these notes for better understanding😎🚀🔥***
 
 ## Starting...
 * JavaScript is a programming language, used to create Dynamic and Interactive web pages!
