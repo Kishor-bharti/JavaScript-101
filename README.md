@@ -1681,6 +1681,48 @@ console.log(person2.isEmployed);
 person2.sayHello();
 ``` 
 ## What is THIS 👈
+- this = reference to the object where THIS is used (the object depends on the immediate context)
+- `person.name = this.name`
+
+```js
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    sayHello: function(){console.log(`Hi! I am ${this.name})`}, // Hi! I am , will be printed if not used this keyword! using this.name is same as using person1.name!
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)},
+}
+// one of the cool features of it , is when we copy this code for person2 , we only need to update the name and favFood property and it will work!
+const person2 = {
+    name: "Patrick",
+    favFood: "Pizza",
+    sayHello: function(){console.log(`Hi! I am ${this.name})`}, // Hi! I am , will be printed if not used this keyword! using this.name is same as using person1.name!
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)},
+}
+
+person1.sayHello();
+person1.eat();
+person2.sayHello();
+person2.eat();
+```
+- If you were to use `this` outside of any objects, I'm going to `console.log(this)` as:
+```js
+console.log(this);
+```
+- It will return a window object (in case you're in a browser)
+- Basically, we are returning the window to see our website  
+- Technically we're inside of an object already, our window object! And we have all of these properties, but since we're using this keyword inside the context of person1 and person2 , we'll instead make a reference to those objects
+> Very Important: this keyword doesn't work with arrow functions!
+
+```js
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    eat: () => console.log(`${this.name} is eating ${this.favFood}`),
+}
+person1.eat(); // output:  is eating undefined
+```
+- when you use `this` within an arrow function, it's making a reference to that window object still
+- Our window object does have a name, that's why it's appearing empty but favFood is undefined because our window object doesn't have a favFood property!
 ## Constructors 🛠
 ## Classes 🏭
 ## STATIC keyword ⚡
