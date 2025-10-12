@@ -2540,6 +2540,29 @@ function shuffle(array){
     console.log(month);
     console.log(day);
 }
+
+{
+    // now with the date object, we can even set the date with a method!
+
+    const date = new Date();
+
+    date.setFullYear(2024);
+    date.setMonth(0);
+    date.setDate(1);
+    date.setHours(2);
+    date.setMinutes(3);
+    date.setSeconds(4);
+}
+
+{
+    // you can even compare dates as well!
+    const date1 = new Date("2023-12-31");
+    const date2 = new Date("2024-01-01");
+
+    if(date2 > date1){
+        console.log("HAPPY NEW YEAR!");
+    }
+}
 ```
 ## Closures 🔒
 ## setTimeout() ⏰
