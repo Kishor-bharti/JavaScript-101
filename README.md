@@ -2175,6 +2175,122 @@ class Rectangle{
 - See the second example in the video!
 
 ## Destructuring 💥
+- Destructuring =  extract values from arrays and objects, then assign them to variables in a convenient way
+- [] = to perform array destructuring
+- {} = to perform object destructuring
+- 5 examples
+```js
+// -----------EXAMPLE 1------------------
+// SWAP THE VALUE OF TWO VARIABLES
+
+let a = 1;
+let b = 2;
+
+//to need array destructuring, we need straight brackets! []
+[a, b] = [b, a]; // on the left, we're destructuring and creating a new array on the RHS
+
+console.log(a); // 2
+console.log(b); // 1
+```
+
+```js
+// -------------EXAMPLE 2----------------
+// SWAP 2 ELEMENTS IN AN ARRAY
+
+const colors = ["red", "green", "blue", "black", "white"];
+// suppose we want to swap the 1st and the last elements of this array
+
+[colors[0], colors[4]] = [colors[4], colors[0]];
+console.log(colors);
+```
+
+```js
+// -------------EXAMPLE 3-----------------
+// ASSIGN ARRAY ELEMENTS TO VARIABLES
+
+const colors = ["red", "green", "blue", "black", "white"];
+
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+
+console.log(firstColor); //  red
+console.log(secondColor); // green
+console.log(thirdColor); // blue
+console.log(extaColors); // ['black', 'white'] (new array!)
+```
+
+```js
+// -------------EXAMPLE 4--------------------
+// EXTRACT VAULES FROM OBJECTS
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "SquarePants", 
+    age: 30,
+    job: "Fry Cook",
+}
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star", 
+    age: 34,
+}
+
+const {firstName, lastName, age, job} = person1;
+// const {firstName, lastName, age, job} = person2;
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job); // for person2 it's going to be `undefined`
+
+// using object destructuring, we can reassign elements or set a default value as:
+const {firstName, lastName, age, job="unemployed"} = person2;
+```
+
+```js
+// ----------------EXAMPLE 5---------------------
+// DESTRUCTURE IN FUNCTION PARAMETERS
+
+// we can destructure in function parameters, we can pass an object to a function and destructure it when it's passed in!
+
+function displayPerson({firstName, lastName, age, job}){ // here, we are destructuring the object argument that we are receiving!
+    console.log(`name: ${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job: ${job}`);
+}
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "SquarePants", 
+    age: 30,
+    job: "Fry Cook",
+}
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star", 
+    age: 34,
+}
+
+console.log(person1);
+/*
+    output:
+    name: Spongebob SquarePants
+    age: 30
+    job: Fry Cook
+*/
+
+console.log(person2);
+/*
+    output:
+    name: Patrick Star
+    age: 34
+    job: undefined
+*/
+
+// again, we can set the default value!
+// function displayPerson({firstName, lastName, age, job="unemployed"})
+```
 ## Nested objects 📫
 ## Arrays of objects 🍎
 ## Sorting 🗃
