@@ -2565,6 +2565,166 @@ function shuffle(array){
 }
 ```
 ## Closures 🔒
+- closures = A function defined inside of another function, the inner function has access to the variables and scope of the outer function.
+- Allow for private variables and state maintenance
+- Used frequently in JS frameworks: React, Vue, Angular
+- You'll see closures fairly often with function-based components (you have functions inside of other functions!)
+
+```js
+function outer(){
+    let message = "Hello";
+
+    function inner(){
+        console.log(message);
+    }
+
+    inner();
+}
+
+outer(); // output: Hello
+
+// everything within the outer function is part of a closure (we have a function, inside of a function)
+
+// one of the benefits of closures is that it makes the properties private by encapsulating the variables in the outer function!
+```
+
+```js
+// closures can also maintain the state of a variable!
+{
+    function increment(){
+        let count = 0;
+        count++;
+        console.log(`Count increase to ${count}`);
+    }
+
+    increment(); // 1
+    increment(); // 1
+    increment(); // 1 (everytime we invoke this function(), it reassign the count and make it 0!)
+
+    // although, we can make a global count variable but that makes it accessible to everyone! (hence not secure!)
+    // so, closures makes variables private as well as allow them to maintain their state!
+}
+
+{
+    function createCounter(){
+
+        let count = 0;
+
+        function increment(){
+            count++;
+            console.log(`Count increased to ${count}`);
+        }
+
+        return {increment}; // here, we are returning an object and {increment} is a short-hand version of passing the property with it's associate value, i.e., (property:associate) 
+        // you can just use the function name for the property!
+    }
+
+    const counter = createCounter();
+
+    counter.increment(); // 1
+    counter.increment(); // 2
+    counter.increment(); // 3 (now works!)
+
+    // counter.count = 0; 
+    // console.log(count); // Uncaught ReferenceError! 
+    // console.log(counter.count); // undefined!
+    // here also we cannot access the private property count! (hence, making it secure, yet modifiable!)
+}
+{
+    // we can have make more functions inside a closure!
+    function createCounter(){
+
+        let count = 0;
+
+        function increment(){
+            count++;
+            console.log(`Count increased to ${count}`);
+        }
+        
+        function getCount(){
+            return count;
+        }
+
+        return {increment, getCount};
+    }
+
+    const counter = createCounter();
+
+    counter.increment();
+    counter.increment();
+    counter.increment();
+
+    console.log(`The current count is ${counter.getCount()}`);
+
+}
+```
+
+```js
+{
+    // last example!!
+    // we're going to create a closure for a game, where we keep track of points!
+
+    let score = 0;
+
+    function increaseScore(points){
+        score += points;
+        console.log(`+${points}pts`);
+    }
+
+    function decreaseScore(points){
+        score -= points;
+        console.log(`-${points}pts`);
+    }
+
+    function getScore(){
+        return score;
+    }
+
+    increaseScore(5); // +5pts
+    increaseScore(6); // +6pts
+    decreaseScore(6); // -3pts
+
+    console.log(`The final score is ${getScore()}pts`); // The final score is 8pts
+
+    // the problem with this is: 
+    // we can set score to anything!!
+    score = 10000000000000;
+
+    // so, for some security! Lets enclose all of this code within a closure
+}
+
+{
+    // *Bro starts with creating a function that will return an object!
+    function createGame(){ // this function acts as a class and returns an object!
+        let score = 0;
+
+        function increaseScore(points){
+            score += points;
+            console.log(`+${points}pts`);
+        }
+
+        function decreaseScore(points){
+            score -= points;
+            console.log(`-${points}pts`);
+        }
+
+        function getScore(){
+            return score;
+        }
+
+        return {increaseScore, decreaseScore, getScore};
+    }
+
+    const game = createGame(); // object creation!
+
+    game.increaseScore(5); // +5pts
+    game.increaseScore(6); // +6pts
+    game.decreaseScore(6); // -3pts
+    console.log(`The final score is ${game.getScore()}pts`);
+
+    // now you cannot access the score property from outside!
+}
+```
 ## setTimeout() ⏰
 ## Digital Clock program 🕐
 ## Stopwatch program ⏱
