@@ -2367,6 +2367,57 @@ console.log(person1.address); // {address object}
 console.log(person1.address.street);
 ```
 ## Arrays of objects 🍎
+```js
+const fruits = [{name: "apple", color: "red", calories: 95}, // objects can have their own unique properties
+                {name: "orange", color: "orange", calories: 45},
+                {name: "banana", color: "yellow", calories: 105},
+                {name: "coconut", color: "white", calories: 159},
+                {name: "pineapple", color: "yellow", calories: 37},
+                ];
+
+console.log(fruits[0].name); // apple
+fruits.push({name: "grapes", color: "purple", calories: 62});
+fruits.pop(); 
+fruits.splice(1, 2); // splice() will remove an elements at certain indices!
+
+
+// -------------------------forEach()-----------------------------
+// we can use the forEach() method to loop through the elements of your array!
+
+fruits.forEach(fruit => console.log(fruit.name));
+
+
+// ------------------------map()-----------------------------
+// the map method will run each element through a function and return a new array
+
+const fruitNames = fruits.map(fruit => fruit.name);
+
+console.log(fruitNames);
+
+// -------------------------filter()--------------------------
+// the filter() method will return a new array after using each element and checking a condition
+
+const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
+const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
+
+console.log(yellowFruits);
+console.log(lowCalFruits);
+
+// --------------------------reduce()--------------------------
+// the reduce() method will return a single value, in this case an object (one of these objects!)
+
+const maxFruit = fruits.reduce((max, fruit) => 
+                                fruit.calories > max.calories ? 
+                                fruit :  max);
+
+const minFruit = fruits.reduce((min, fruit) => 
+                                fruit.calories < min.calories ? 
+                                fruit :  min);
+
+console.log(maxFruit);
+console.log(minFruit);
+
+```
 ## Sorting 🗃
 ## Shuffle an array 🔀
 ## Dates 📅
