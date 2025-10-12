@@ -2779,7 +2779,9 @@ function clearTimer(){
 }
 ```
 ## Digital Clock program 🕐
+- Source code in the video!
 ## Stopwatch program ⏱
+- Source code in the video!
 ## ES6 Modules 🚢
 ## Asynchronous code 💤
 ## Error handling ⚠
