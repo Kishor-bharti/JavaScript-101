@@ -2419,6 +2419,68 @@ console.log(minFruit);
 
 ```
 ## Sorting 🗃
+- sort() = method used to sort elements of an array in place. 
+- Sorts elements as strings in lexicographic order, not alphabetical 
+- lexicographic = (alphabet + numbers + symbols) as strings
+
+```js
+//eg, sorting in alphabetical order:
+const fruits = ["apple", "orange", "banana", "coconut", "pineapple"];
+
+fruits.sort();
+
+console.log(fruits); // sorted array
+```
+
+```js
+//eg, sorting numbers:
+let numbers = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+
+numbers.sort();
+
+console.log(numbers); // UNEXPECTEDLY!❗❗❗❗❗❗❗❗❗ THE ANSWER IS NOT SORTED NUMBERICALLY!
+//output: [1, 10, 2, 3, 4, 5, 6, 7, 8, 9]
+// we are sorting it not numberically, but lexicographically!
+```
+
+```js
+// To sort the numbers array in numberic order, we have to take some extra steps
+// Inside the sort() method, we have to write a custom comparison function
+// this is normally a callback, but you can write a function expression or even better yet an arrow function
+let numbers = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+
+numbers.sort((a,b) => a - b); // our function (a-b) will return a negative zero or a positive value, depending on what values we're examining.
+// the sort method will sort those values into place depending on what the value returned is! 
+
+console.log(numbers); // now, the numbers are sorted as required!
+
+// for reverse order , you can write :
+numbers.sort((a,b) => b - a);
+```
+
+```js
+// You can also sort objects by a given property
+
+const people = [
+    {name: "Spongbob", age: 30, gpa: 3.0},
+    {name: "Patrick", age: 37, gpa: 1.5},
+    {name: "Squidward", age: 51, gpa: 2.5},
+    {name: "Sandy", age: 27, gpa: 4.0},
+]
+
+//we would like to sort this array of objects by each person's age
+
+people.sort((a,b) => a.age - b.age);
+
+console.log(people); //  this sorts the people array by their age! (ofcourse! to reverse it change a.age - b.age in reverse!)
+// similarly, we can sort it by gpa and it works fine! but when you try to sort the array by the name property, you will see some logical error! 
+
+// if you need to sort by a property that contains a string within an object , there's a different formula
+
+people.sort((a,b) => a.name.localeCompare(b.name));
+// this method will examine two strings for lexicographic order!
+// for reverse => b.name.localeCompare(a.name);
+```
 ## Shuffle an array 🔀
 ## Dates 📅
 ## Closures 🔒
