@@ -2726,6 +2726,58 @@ outer(); // output: Hello
 }
 ```
 ## setTimeout() ⏰
+- setTimeout() = function in JavaScript that allows you to schedule the execution of a function after an amount of time (milliseconds)
+- Times are approximate (varies based on the workload of the JavaScript runtime env.)
+- `setTimeout(callback,delay)`
+- `clearTimeout(timeoutId) = can cancel a timeout before it triggers`
+
+```js
+{
+    //eg. 1, 
+
+    function sayHello(){
+        window.alert("Hello");
+    }
+
+    setTimeout(sayHello, 3000);
+}
+{
+    // an anonymous function works too!
+    setTimeout(function(){window.alert("Hello")},3000);
+
+    // using arrow function =>
+
+    setTimeout(() => window.alert("Hello"),3000);
+}
+{
+    // You can use the clear timeout function to cancel a timeout before it triggers! 
+    // but we have to pass a (timeoutId)
+    const timeoutId = setTimeout(() => window.alert("Hello"),3000);
+
+    clearTimeout(timeoutId); // prints nothing!
+}
+```
+
+```html
+<!-- Now, we'll create a button using HTML -->
+ <!-- When we click on the button, we'll set a timeout to display the word "Hello" -->
+  <button onClick = "startTimer()">START</button>
+  <button onClick = "clearTimer()">CLEAR</button>
+```
+
+```js
+let timeoutId; // but how this timeoutId initiated?? and with what!!!????
+
+function startTimer(){
+    setTimeout(() => window.alert("Hello"), 3000);
+    console.log("Started");
+}
+
+function clearTimer(){
+    clearTimeout(timeoutId);
+    console.log("Cleared");
+}
+```
 ## Digital Clock program 🕐
 ## Stopwatch program ⏱
 ## ES6 Modules 🚢
