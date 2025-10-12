@@ -2501,6 +2501,46 @@ function shuffle(array){
 }
 ```
 ## Dates 📅
+- Date objects = Objects that contain values that represent dates and times
+- These date objects can be changed and formatted
+```js
+{
+    const date = new Date();
+
+    console.log(date); // 2025-10-12T18:19:24.753Z
+}
+
+{
+    // If you would like to create your own custom date and time object, you'll have to pass in some arguments
+    // you should follow this order for the date Constructor!
+    // Date(year, month, day, hour, minute, second, ms)
+    const date = new Date(2025, 0, 1, 2, 3, 4, 5);
+    // passing a string is also valid!
+    const date = new Date("2025-01-02T12:00:00z");
+
+    // about epic date in video!
+
+    console.log(date);
+}
+
+{
+    // you can also extract individual values from a date object!
+
+    const date = new Date();
+
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate(); // if used .getDay() , it will give the day of the week (like monday)
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const dayOfWeek = date.getDay();
+
+    console.log(year);
+    console.log(month);
+    console.log(day);
+}
+```
 ## Closures 🔒
 ## setTimeout() ⏰
 ## Digital Clock program 🕐
