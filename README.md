@@ -2292,6 +2292,80 @@ console.log(person2);
 // function displayPerson({firstName, lastName, age, job="unemployed"})
 ```
 ## Nested objects 📫
+- nested objects = Objects inside of other Objects.
+- Allows you to represnt more complex data structures
+- Child Object is enclosed by a Parent Object
+- Person{Address{}, ContactInfo{}}
+- ShoppingCart{keyboard{}, Mouse{}, Monitor{}}
+
+```js
+const person = {
+    fullName: "Spongebob Squarepants",
+    age: 30,
+    isStudent: true,
+    hobbies: ["karate", "jellyfishing", "cooking"],
+    address: {
+        street: "124 Conch st.",
+        city: "Bikini Bottom",
+        country: "Int. Water"
+    }
+}
+
+console.log(person.fullName) // property accessor => . (name of the property!)
+console.log(person.age);
+console.log(person.isStudent);
+console.log(person.hobbies[0]);
+console.log(person.address.street);
+console.log(person.address.city);
+console.log(person.address.country);
+
+// We can also loop through the collection as:
+
+for(const property in person.address){
+    console.log(person.address[property]);
+}
+```
+
+```js
+// LETS MAKE SOMETHING LITTLE MORE COMPLICATED!
+// we're going to create a class that utilizes a nested objects
+
+class Person{
+
+    constructor(name, age, ...address){ // for address we are using the rest parameters (we can pass in different parts of an address and store it within an array.)
+        this.name = name;
+        this.age = age;
+        // now, for the address we are going to construct an address object
+        this.address = new Address(...address); // we're gonna call the Constructor of our address class and pass in our address (we've utilized the ...spread operator to spread our address)
+    }
+}
+
+class Address{
+    
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+const person1 = new Person("Spongebob", 30, "124 Conch St.", 
+                                             "Bikini Bottom", 
+                                             "Int. Waters");
+
+const person2 = new Person("Patrick", 37,   "124 Conch St.", 
+                                             "Bikini Bottom", 
+                                             "Int. Waters");
+
+const person3 = neww Person("SquidWard", 45, "126 Conch St.", 
+                                             "Bikini Bottom", 
+                                             "Int. Waters");
+                                             
+console.log(person1.name); // Spongebob
+console.log(person1.age); // 30
+console.log(person1.address); // {address object}
+console.log(person1.address.street);
+```
 ## Arrays of objects 🍎
 ## Sorting 🗃
 ## Shuffle an array 🔀
