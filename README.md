@@ -3017,6 +3017,138 @@ when username is `something`:
     welcome something
 ```
 ## Element selectors 📑
+- Element selectors = Methods used to target and manipulate HTML elements 
+- They allows you to select one or multiple HTML elements from the DOM (Document Object Model)
+
+```txt
+// built-in methods
+1. document.getElementById() // returns... ELEMENT OR NULL
+2. document.getElementsClassName() // HTML COLLECTION
+3. document.getElementsByTagName() // HTML COLLECTION
+4. document.querySelector() // ELEMENT OR NULL
+5. document.querySelectorAll() // NODELIST
+```
+
+- example 1: document.getElementById()
+```html
+<h1 id="my-heading">Food R Us</h1>
+<sript src = "index.js"></script>
+```
+```js
+const myHeading = document.getElementById("my-heading"); // this const stores a reference to this element id = 'my-heading' (we're accessing the DOM with `document` keyword)
+myHeading.style.backgroungColor = "yellow"; // if we're accessing the CSS properties in JS , they have a camelCase naming convention but in CSS it has a hyphen-ated naming convention!
+myHeading.style.textAlign = "center";
+
+console.log(myHeading); // it displays our HTML element (including style), rather than `Food R Us`
+
+//it returns null in case of wrong id!
+
+```
+
+- example 2: document.getElementsClassName()
+- It's returns an HTML collection (similar to an array but limited to it's built-in methods!)
+```html
+<body>
+    <h1 id="my-heading">Food R Us</h1>
+
+    <div class="fruits">Apple</div>
+    <div class="fruits">orange</div>
+    <div class="fruits">banana</div>
+
+    <sript src = "index.js"></script>
+</body>
+```
+
+```js
+    const fruits = document.getElementByClassName("fruits");
+
+    console.log(fruits); // outputs: HTML collection with textContent = Apple, orange, banana
+
+    // we can access these elements via index!
+    fruits[0].style.backgroundColor = "yellow"; 
+
+    // we can also iterate through these elements! (ie, HTML collections are iterable!)
+    for(let fruit of fruits){
+        fruit.style.backgroudColor = "yellow";
+    }
+
+    // HTML collections ,although, are like arrays but is limited!
+    fruits.forEach(); // (using array method) this will raise an Uncaught TypeError: fruits.forEach is not a function!
+
+    // for this, we first need to type-caste the html collection to an array!
+    Array.from(fruits).forEach(fruit => {
+        fruit.style.backgroundColor = "yellow";
+    }); // works fine!
+```
+- example 3 : document.getElementsByTagName()
+```html
+<h4>Root Vegetables</h4>
+<ul>
+    <li>Beats</li>
+    <li>Carrots</li>
+    <li>Potatoes</li>
+</ul>
+
+<h4>Non-Root Vegetables</h4>
+<ul>
+    <li>Broccoli</li>
+    <li>Celery</li>
+    <li>Onions</li>
+</ul>
+
+```
+```js
+const h4Elements = document.getELementsByTagName("h4");
+const liElement = document.getELementsByTagName("li");
+
+// console.log(h4Elements); // output: 2 HTML collections
+
+h4Elements[0].style.backgroundColor = "yellow";
+
+// to highlight all, we can use the enhanced for loop!
+for(let h4Element of h4Elements){
+    h4Element.style.backgroundColor = "yellow";
+}
+
+for(let liElement of liElements){
+    liElement.style.backgroundColor = "lightgreen";
+}
+
+// similarly, we can type caste it and use the array methods on it!
+
+```
+
+- example 4: document.querySelector() 
+- querySelector will return the first matching element or null if it doesn't find any matches!
+
+```js
+const element = document.querySelector(".fruits"); // to select an element by a class name, we'll use `dot` (".") `the name of the class` (eg, .fruits)
+
+element.style.backgroundColor = "yellow"; // it will highlight Apple only (since, it only selects the first match!)
+
+// change .fruits to h4 (it'll only highlight the Root vegetables, although we have two h4)
+// similarly, try to select li, ul and observe the results
+// also, try to select something that doesn't exists (like ol) and observe the result!
+```
+- example 5: document.querySelectorAll()
+- It returns a NodeList
+- A node list is similar to an HTML collection expect it has built-in methods similar to arrays
+- However, node lists are static, HTML collections are live 
+- Since node lists are static, they do not update automatically in the DOM
+- HTML collections are live, they will!
+```js
+const fruits = document.querySelectorAll(".fruits");
+const foods = document.querySelectorAll("li");
+
+fruits[0].style.backgroundColor = "yellow"; // works the same as above
+
+console.log(foods); // outputs a node list (with forEach built-in method!)
+// so, now we don't need to type caste it
+
+foods.forEach(food => {
+    food.style.backgroundColor = "yellow"; // observe the results!
+});
+```
 ## DOM navigation 🧭
 ## Add & change HTML 🛠️
 ## Mouse events 🖱
