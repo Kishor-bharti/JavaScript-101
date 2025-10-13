@@ -2888,6 +2888,91 @@ func1(func2);
 ```
 - we'll discuss how to handle asynchronous codes via Promises, Async/Await later!
 ## Error handling ⚠
+- Error = An Object that is created to represented a problem that occurs
+- Occur often with user input or establishing a connection
+
+```js
+{
+    // Error eg. 1, : Uncaught TypeError: console.lag is not a function
+
+    console.lag("Hello");
+
+    console.log("You have reached the end!"); // this line doesn't executes!
+    // hence, Errors when they are Uncaught interrupt the normal flow of our program!!
+}
+
+{
+    // Error eg. 2, : Uncaught ReferenceError: x is not defined!
+    console.log(x);
+
+    console.log("You have reached the end!");
+}
+{
+    // Errors can be generated due to various reasons!
+    // NETWORK ERRORS
+    // PROMISE REJECTION
+    // SECURITY ERRORS
+}
+```
+
+- we can handle these errors via error handling! (using...)
+- try { } = Encloses code that might potentially cause an error
+- catch { } = Catchand handle any thrown Errors from try { }
+- finally { } = {optional} Always executes. Used mostly for clean up
+- ex. close files, close connections, release resources
+
+```js
+{
+    try{
+        console.log(x);
+    }
+    catch(error){
+        // console.log(error); //for displaying errors, always use console.error()
+        console.error(error); // this highlights the error!
+    }
+    finally{
+        // CLOSE FILES
+        // CLOSE CONNECTIONS
+        // RELEASE RESOURCES
+        console.log("This always executes");
+    }
+    console.log("You have reached the end!"); // now, we have reached the end!
+}
+{
+    // Errors can also occur when accepting user input! bcoz we don't know what users gonna type in!
+    // In the worst case, it can be a malicious script!
+    const dividend = window.prompt("Enter a dividend: ");
+    const divisor = window.prompt("Enter a divisor: ");
+
+    const result = dividend/ divisor;
+    console.log(result); // works fine but number/ 0 is mathematically incorrect! (prints: infinity!)
+}
+
+{
+    // fixed!
+    try{
+        const dividend = Number(window.prompt("Enter a dividend: "));
+        const divisor = Number(window.prompt("Enter a divisor: "));
+
+        // within the try block, (in certain situations) we can intentionally cause an error!
+        if(divisor === 0){
+            throw new Error("You can't divide by zero!"); // we're calling the error constructor to construct a new error objecct!
+        }
+
+        // users can also input in a string (like pizza) instead of a number! 
+        // for that case, we've type-casted our dividend and divisor and handle that error below!
+        if(isNaN(dividend) || isNaN(divisor)){
+            throw new Error("Values must be a number!");
+        }
+        
+        const result = dividend/ divisor;
+        console.log(result);
+    }
+    catch(e){
+        console.error(e);
+    }
+}
+```
 ## Calculator program 🖩
 ## What is the DOM? 🌳
 ## Element selectors 📑
