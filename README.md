@@ -2976,6 +2976,46 @@ func1(func2);
 ## Calculator program 🖩
 - Source code in the video!
 ## What is the DOM? 🌳
+- DOM = DOCUMENT OBJECT MODEL
+- Object{} that represents the page you see in the web browser and provides you with an API to interact with it.
+- Web browser constructs the DOM when it loads an HTML document, and structures all the elements in a tree-like representation.
+- JavaScript can access the DOM to dynamically change the content, structure, and style of a web page.
+- `document.getElementById("myH1");` Document here is an object, it contains properties and methods and other nested objects!
+
+```js
+console.log(document); // it will display the html document!
+console.dir(document); // list all the properties of this object
+
+// we can access this object and change it's properties! eg,
+
+document.title = "My website";
+console.dir(document); // check the title!
+{
+    // we can change the background as:
+    document.body.style.backgroundColor = "hsl(0, 0%, 15%)";
+    // we have dynamically changed the style property without using css!
+}
+```
+```html
+<h1 id="welcome-msg">Welcome</h1>
+<script src="index.js"></script>
+```
+```js
+// we are conditionally going to change the username!
+
+const username = "Bro code";
+const welcomeMsg = document.getElementById("welcome-msg");
+
+welcomeMsg.textContent += username === "" ? `Guest` : username;
+```
+
+```txt
+when username is empty:
+    Welcome Guest
+
+when username is `something`:
+    welcome something
+```
 ## Element selectors 📑
 ## DOM navigation 🧭
 ## Add & change HTML 🛠️
