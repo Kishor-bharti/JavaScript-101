@@ -2783,6 +2783,61 @@ function clearTimer(){
 ## Stopwatch program ⏱
 - Source code in the video!
 ## ES6 Modules 🚢
+- ES6 = (a module is...) An external file that contains reusable code that can be imported into other JavaScript files. (any part of a JS file, can be exported for reusability) Write reusable code for many different apps.
+- It can contain variables, classes, functions... and more
+- Introduced as part of ECMAScript 2015 update
+- eg.,
+
+```txt
+1. Bro creates a new js file *mathUtil.js*
+2. Sets the type attribute to be equal to `module` as below! (So, now our `index.js` file will be treated as a module!)
+3. We can import or export other modules freely! But we have to be sure to set this attribute = "module"
+```
+
+```html
+<body>
+    <script type="module" src="index.js"></script>
+</body>
+```
+
+```js
+// mathUtil.js
+
+// Inside our mathUtil module, we can write some reusable code for other programs!
+
+export const PI = 3.14159;
+
+export function getCircumference(radius){
+    return 2 * PI * radius;
+}
+
+export function getArea(radius){
+    return PI * radius * radius;
+}
+
+export function getVolume(radius){
+    return (4/3) * PI * Math.pow(radius, 3);
+    // return 4 * PI * radius * radius // for surface area!
+}
+
+// we can reuse these variables and functions for any JavaScript program that we have, by importing them 
+// but first we have to export it!
+```
+
+```js
+// index.js
+
+import {PI, getCircumference, getArea, getVolume} from './mathUtil.js'; 
+
+console.log(PI);
+const circumference = getCircumference(10);
+const area = getArea(10);
+const volume = getVolume(10);
+
+console.log(`${circumference.toFixed(2)}cm`);
+console.log(`${area.toFixed(2)}cm^2`);
+console.log(`${volume.toFixed(2)}cm^3`);
+```
 ## Asynchronous code 💤
 ## Error handling ⚠
 ## Calculator program 🖩
