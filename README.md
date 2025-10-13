@@ -2839,6 +2839,54 @@ console.log(`${area.toFixed(2)}cm^2`);
 console.log(`${volume.toFixed(2)}cm^3`);
 ```
 ## Asynchronous code 💤
+- Synchronous = Executes line by line consecutively in a sequential manner. Code that waits for an operation to complete. (Has order of operation!)
+
+```js
+// Example of Synchronous code:
+console.log("Task 1");
+console.log("Task 2");
+console.log("Task 3");
+```
+
+- Asynchronous = Allows multiple operations to be performed concurrently without waiting. Doesn't block the execution flow and allows the program to continue (I/O operations, network requests, fetching data). Handled with: Callbacks, Promises, Async/Await
+
+```txt
+* Asynchronous code is like a time traveler!
+* A time traveler can move out of the flow of time but the rest of the world continues, time resumes normally
+* Asynchronous code doesn't block the execution flow
+* It is typically found with input output operations, Network requests and fetching data (anything that require an indeterminate amount of time!)
+```
+
+```js
+// eg. of async:
+
+setTimeout(() => console.log("Task 1"), 3000);
+
+console.log("Task 2");
+console.log("Task 3");
+```
+
+```js
+// There are different ways to handle asychronous code : Callbacks, Promises, Async/Await
+// We're Familier with Callbacks, so we'll use it!
+
+function func1(callback){ // asynchronous code!!!
+    setTimeout(() => {
+        console.log("Task 1");
+        callback() // runs after Task 1 is completed!
+    }, 3000);
+}
+
+function func2(){ // synchronous code!!!
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+}
+
+func1(func2);
+
+```
+- we'll discuss how to handle asynchronous codes via Promises, Async/Await later!
 ## Error handling ⚠
 ## Calculator program 🖩
 ## What is the DOM? 🌳
