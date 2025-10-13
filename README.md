@@ -3286,6 +3286,90 @@ children[1].style.backgroundColor = "yellow";
 ```
 
 ## Add & change HTML 🛠️
+```js
+// -------------------- EXAMPLE 1 <h1> --------------------
+
+// STEP 1 CREATE THE ELEMENT
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+
+// STEP 3 APPEND ELEMENT TO DOM
+
+// REMOVE HTML ELEMENT
+```
+
+```html
+<div id= "box1" class = "box">
+    <p>Box1</p>
+</div>
+
+<div id= "box2" class = "box">
+    <p>Box2</p>
+</div>
+
+<div id= "box3" class = "box">
+    <p>Box3</p>
+</div>
+
+<div id= "box4" class = "box">
+    <p>Box4</p>
+</div>
+
+```
+
+```css
+.box{
+    border: 3px solid;
+    width: 100%;
+    height: 125px;
+}
+```
+
+```js
+// -------------------- EXAMPLE 1 <h1> --------------------
+
+// STEP 1 CREATE THE ELEMENT
+const newH1 = document.createElement("h1");
+newH1.id = "myH1";
+newH1.style.color = "tomato";
+newH1.style.textAlign = "center";
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+newH1.textContent = "I like pizza!";
+
+// STEP 3 APPEND ELEMENT TO DOM
+document.body.append(newH1); // this appends a new element with textContent = I like pizza!
+document.body.prepend(newH1); // see what it does!
+{
+    // now we'll append this newH1 in the box1
+    document.getElementById("box1").append(newH1); // similarly, box2, box3...
+    // now , if this box previously contained a child (which it does!) , this newH1 will be appended after it! (ie, new child is always appended at the last!)
+    // if we want it to be the first child , we can prepend it!
+}
+{
+    document.getElementById("box1").prepend(newH1);
+}
+{
+    // if we want to insert it in between of box1 and box2:
+    const box2 = document.getElementById("box2");
+    document.body.insertBefore(newH1,box2); // (newElement, currentElement)
+}
+{
+    // we can even do this without using the element id!
+    const boxes = document.querySelectorAll(".box");
+    boxes.body.insertBefore(newH1, boxes[2]);
+}
+// REMOVE HTML ELEMENT (this is optional!)
+document.body.removeChild(newH1); // works when the newH1 is in the body
+{
+    // in the case, this newH1 being in one of the boxes!
+    document.getElementById("box1").removeChild(newH1);
+}
+```
+
+```js
+// CHECK 2ND EXAMPLE IN THE VIDEO!
+```
 ## Mouse events 🖱
 ## Key events ⌨
 ## Hide/show HTML 🖼
