@@ -3150,6 +3150,141 @@ foods.forEach(food => {
 });
 ```
 ## DOM navigation 🧭
+- DOM Navigation = The process of navigating through the structure of an HTML document using JavaScript.
+```txt
+.firstElementChild
+.lastElementChild
+.nextElementSibling
+.previousElementSibling
+.parentElement
+.children
+```
+
+```html
+<ul id="fruits">
+    <li>apple</li>
+    <li>orange</li>
+    <li>banana</li>
+</ul>
+
+<ul id="vegetables">
+    <li>carrots</li>
+    <li>onions</li>
+    <li>potatoes</li>
+</ul>
+
+<ul id="desserts">
+    <li>cake</li>
+    <li>pie</li>
+    <li>ice cream</li>
+</ul>
+
+```
+```js
+// ---------------------.firstElementChild------------------------
+
+const element = document.getElementById("desserts");
+const firstChild = element.firstElementChild;
+firstChild.style.backgroundColor = "yellow"; // highlights cake
+
+{
+    const ulElements = document.querySelectorAll("ul");
+
+    ulElements.forEach(ulElement => {
+        const firstChild = ulElement.firstElementChild;
+        firstChild.style.backgroundColor = "yellow";
+    }); // highlights all first elements under ul
+}
+
+```
+
+```js
+// ----------------------.lastElementChild-----------------------
+
+const element = document.getElementById("fruits");
+const lastChild = element.lastElementChild;
+lastChild.style.backgroundColor = "yellow";
+// make a small project that highlights these list items with arrow keys!
+{
+    const ulElements = document.querySelectorAll("ul"); // returns a node list (unordered)
+
+    ulElements.forEach(ulElement => {
+        const lastChild = ulElement.lastElementChild;
+        lastChild.style.backgroundColor = "yellow";
+    });
+}
+```
+
+- next we have : .nextElementSibling
+- for this, we'll make some changes in our html :
+```html
+<!-- giving each li, a unique id -->
+<ul id="fruits">
+    <li id="apple">apple</li>
+    <li id="orange">orange</li>
+    <li id="banana">banana</li>
+</ul>
+
+<ul id="vegetables">
+    <li id="carrots">carrots</li>
+    <li id="onions">onions</li>
+    <li id="potatoes">potatoes</li>
+</ul>
+
+<ul id="desserts">
+    <li id="cake">cake</li>
+    <li id="pie">pie</li>
+    <li id="ice cream">ice cream</li>
+</ul>
+
+```
+
+```js
+// ---------------------------.nextElementSibling--------------------
+
+const element = document.getElementById("banana"); 
+const nextSibling = element.nextElementSibling;
+nextSibling.style.backgroundColor = "yellow";
+// try to select ul ie fruits/ vegetables ... and find out!
+
+```
+
+```js
+// ---------------------------.previousElementSibling--------------------
+
+const element = document.getElementById("banana"); 
+const prevSibling = element.previousElementSibling;
+prevSibling.style.backgroundColor = "yellow";
+// try to select ul ie fruits/ vegetables ... and find out!
+
+```
+
+```js
+// ---------------------------.parentElement--------------------
+
+const element = document.getElementById("orange"); 
+const parent = element.parentElement;
+parent.style.backgroundColor = "yellow";
+
+```
+
+```js
+// ---------------------------.children--------------------
+
+const element = document.getElementById("fruits"); 
+const children = element.children;
+children.style.backgroundColor = "yellow";
+
+Array.from(children).forEach(child => {
+    child.style.backgroundColor = "yellow";
+});
+
+// we can even access these children by it's index number!
+// eg.,
+
+children[1].style.backgroundColor = "yellow";
+```
+
 ## Add & change HTML 🛠️
 ## Mouse events 🖱
 ## Key events ⌨
