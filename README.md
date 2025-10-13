@@ -2964,7 +2964,7 @@ func1(func2);
         if(isNaN(dividend) || isNaN(divisor)){
             throw new Error("Values must be a number!");
         }
-        
+
         const result = dividend/ divisor;
         console.log(result);
     }
@@ -2974,6 +2974,7 @@ func1(func2);
 }
 ```
 ## Calculator program 🖩
+- Source code in the video!
 ## What is the DOM? 🌳
 ## Element selectors 📑
 ## DOM navigation 🧭
