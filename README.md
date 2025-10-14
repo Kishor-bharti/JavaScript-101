@@ -3539,6 +3539,47 @@ document.addEventListener("keydown", event => {
 // now try to merge these last two projects together!
 ```
 ## Hide/show HTML 🖼
+- for this, you'll need an image to work with (we'll make it show or hide in our html!)
+```html
+<button id="myButton">Hide</button><br>
+
+<img id="myImg" src="car.jpg" width="400px">
+```
+```css
+#myButton{
+    font-size:2rem;
+}
+```
+```js
+const myButton = document.getElementById("myButton");
+const myImg = document.getElementById("myImg");
+
+myButton.addEventListener("click", event => {
+    // we will toggle between hide and show button!
+
+    if(myImg.style.display === "none"){
+        myImg.style.display = "block";
+        myButton.textContent = "Hide";
+    }
+    else{
+        myImg.style.display = "none";
+        myButton.textContent = "Show";
+    }
+
+    {
+        // you can also set the space reserved for the image when it hides!
+        if(myImg.style.visibility === "hidden"){
+            myImg.style.visibility = "visibility";
+            myButton.textContent = "Hide";
+        }
+        else{
+            myImg.style.visibility  = "hidden";
+            myButton.textContent = "Show";
+        }
+    }
+
+});
+```
 ## NodeLists 📃
 ## classList 🧾
 ## Rock Paper Scissors 👊
