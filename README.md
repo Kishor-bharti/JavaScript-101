@@ -3442,6 +3442,102 @@ myBox.addEventListener("click", changeColor);
 
 - Now, tryna implement this effect using a button yourself!😁
 ## Key events ⌨
+- eventListener = Listen for specific events to create interactive web pages 
+- events: keydown, keyup, keypress (according to the official documentation, this last event is't compatible with all web browsers, so you should avoid using keypress)
+- `document.addEventListener(event, callback);`
+
+```js
+document.addEventListener("keydown", event => {
+    console.log(event); // tryna press a key and check console of your browser!
+    // pressed `q` key
+    // the web browser provided us with a keyboard event
+
+    console.log(event.key);
+});
+
+{
+    document.addEventListener("keydown", event => {
+        console.log(`Key down = ${event.key}`);
+    });
+
+    document.addEventListener("keyup", event => {
+        console.log(`Key up = ${event.key}`);
+    });
+}
+```
+
+- Now, we'll do a cool thing! (as always!😎)
+```html
+<div id="myBox">😀</div>
+```
+
+```css
+body{
+    margin: 0;
+}
+#myBox{
+    background-color: lightblue;
+    width: 200px;
+    height: 200px;
+    font-size: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* this last one  is very important for positioning! */
+}
+```
+```js
+const myBox = document.getElementById("myBox");
+
+document.addEventListener("keydown", event => {
+    myBox.textContent = "😲";
+    myBox.style.backgroundColor = "tomato";
+});
+
+document.addEventListener("keyup", event => {
+    myBox.textContent = "😀";
+    myBox.style.backgroundColor = "lightlue";
+});
+
+// now, when pressing a key and holding will change the box and releasing will reset it back to original!
+
+```
+```js
+// now in this next example, we will make the box move!
+const myBox = document.getElementById("myBox");
+const moveAmount = 10;
+let x = 0;
+let y = 0;
+
+document.addEventListener("keydown", event => {
+
+    if(event.key.startsWith("Arrow")){
+
+        event.preventDefault();
+
+        switch(event.key){
+            case "ArrowuUp": 
+                y -= moveAmount;
+                break;
+            case "ArrowDown":
+                y += moveAmount;
+                break;
+            case "ArrowLeft":
+                x -= moveAmount;
+                break;
+            case "ArrowRight":
+                x += moveAmount;
+                break;
+        }
+
+        myBox.style.top = `${y}px`;
+        myBox.style.left = `${x}px`;
+    }
+});
+
+// now try to merge these last two projects together!
+```
 ## Hide/show HTML 🖼
 ## NodeLists 📃
 ## classList 🧾
