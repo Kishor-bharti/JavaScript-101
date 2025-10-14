@@ -3371,6 +3371,76 @@ document.body.removeChild(newH1); // works when the newH1 is in the body
 // CHECK 2ND EXAMPLE IN THE VIDEO!
 ```
 ## Mouse events 🖱
+- eventListener = Listen for specific events to create interactive web pages
+- events: click, mouseover, mouseout
+- `.addEventListenerF(event, callback);` 
+
+```html
+<div id="myBox">
+    Click Me 😎
+</div>
+```
+
+```css
+#myBox{
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size: 4.5rem; /* 4.1 is better! */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+```
+
+```js
+const myBox = document.getElementById("myBox");
+
+function changeColor(event){ // event is an object, it is provided automatically by the web browser when something happends (when some event occurs, like mouse-click!)
+
+    // temporarily, we'll console log it!
+    console.log(event); // when we clicked on that box, the web browser provided us with an event object (it's a pointer event!)
+    // this object contains details about what happened exactly!
+    // for example, we have the target => what did we click on! 
+    // [target: div#myBox shows we clicked on the div element with id = myBox]
+
+    // After this line-----------> comment the above console.log();
+    event.target.style.backgroundColor = "tomato";
+    event.target.textContent = "OUCH!😣";
+
+}
+
+myBox.addEventListener("click", changeColor);
+
+{
+    // now , in this block of code, we'll use the anonymous function instead of callback!
+    const myBox = document.getElementById("myBox");
+
+    // myBox.addEventListener("click", function(event){
+    //     event.target.style.backgroundColor = "tomato";
+    //     event.target.textContent = "Ouch!";
+    // }));
+
+    myBox.addEventListener("click", event => {
+        event.target.style.backgroundColor = "tomato";
+        event.target.textContent = "Ouch!";        
+    });
+
+    // now so other event listeners=>
+    myBox.addEventListener("mouseover", event =>{
+        event.target.style.backgroundColor = "yellow";
+        event.target.textContent = "Don't do it! 🤨";  
+    });
+
+    myBox.addEventListener("mouseout", event =>{
+        event.target.style.backgroundColor = "tomato";
+        event.target.textContent = "Ouch!";    
+    });
+}
+```
+
+- Now, tryna implement this effect using a button yourself!😁
 ## Key events ⌨
 ## Hide/show HTML 🖼
 ## NodeLists 📃
