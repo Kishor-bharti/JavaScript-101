@@ -3682,6 +3682,145 @@ buttons.forEach(button => {
 });
 ```
 ## classList 🧾
+- classList = Element property in JavaScript used to interact with an element's list of classes (CSS classes), Allows you to make reusable classes for many elements across your webpage.
+
+- add()
+- remove()
+- toggle(Remove if present, Add if not)
+- replace(oldClass, newClass)
+- contains()
+- eg., 
+
+```html
+<button id="myButton">My button</button>
+```
+<!-- We'll add little bit css first! -->
+
+```css
+#myButton {
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+/* we'll create a class selector and we'll apply this class to this button using JavaScript */
+
+.enabled {
+    background-color: hsl(204, 100%, 50%);
+    color: white;
+}
+
+/* so, the above button doesn't have this class yet!
+*  we'll add this dynamically using JavaScript!
+*/
+
+.hover {
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.2);
+    font-weight: bold;
+}
+```
+
+```js
+// first, we'll create a reference to this button!
+const myButton = document.getElementById("myButton");
+
+myButton.classList.add("enabled"); // this will dynamically add the class, unlike NodeList!
+myButton.classList.remove("enabled"); // to remove the class!
+
+// now with .hover class!
+myButton.classList.add("hover"); // works fine but now we'll add an eventListener for mouseover with this effect!
+// (comment the above loc!)
+myButton.addEventListener("mouseover", event => {
+    event.target.classList.add("hover");
+});
+
+myButton.addEventListener("mouseout", event => {
+    event.target.classList.remove("hover");
+});
+
+// THERE IS ALSO TOGGLE!------------------------------------------
+/*
+* if we toggle a class, we'll remove it! if the class is present, add that class!, if it's not!
+* so let's replace .add() with .toggle() in the above LOC!
+*/
+
+{
+    myButton.addEventListener("mouseover", event => {
+        event.target.classList.toggle("hover");
+    });
+
+    myButton.addEventListener("mouseout", event => {
+        event.target.classList.toggle("hover");
+    });
+}
+
+// now we're going to use the replace method to replace one class with another!
+// we'll create a new class of .disabled!
+```
+
+```css
+.disabled {
+    background-color: hsl(0, 0%, 60%);
+    color: hsl(0, 0%, 80%);
+}
+```
+
+```js
+const myButton = document.getElementById("myButton");
+
+myButton.classList.add("enabled");
+
+myButton.addEventListener("click", event => {
+    event.target.classList.replace("enabled", "disabled");
+});
+```
+<!-- Then we hae the contains() method! 
+     if an element contains a class, this will return true and if it doesn't, it returns false!    
+-->
+
+```js
+const myButton = document.getElementById("myButton");
+
+myButton.classList.add("enabled");
+
+myButton.addEventListener("click", event => {
+
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent += "🤬";
+    }else{
+        event.target.classList.replace("enabled", "disabled"); // if we click and disable our button twice, this append will happen!
+    }
+});
+```
+- Now the nice thing about using classList, elements have a class list property we can reuse CSS classes amongst many HTML elements
+- We'll create an H1 element now!
+- please note that these codes below, are additions to the above HTML, CSS, JS file!
+
+```html
+<h1 id="myH1">Hello</h1>
+```
+```css
+#myH1 {
+    font-size: 5rem;
+}
+```
+```js
+const myH1 = document.getElementById("myH1");
+
+myH1.classList.add("enabled"); // with just this bear LOC, we've added the enabled css property to it!
+
+myH1.addEventListener("click", event => {
+
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent += "🤬";
+    }else{
+        event.target.classList.replace("enabled", "disabled"); // if we click and disable our button twice, this append will happen!
+    }
+});
+```
+- check the challenge round! @ 9:53:30
 ## Rock Paper Scissors 👊
 ## Image Slider 🖼️
 ## Callback Hell? 🔥
