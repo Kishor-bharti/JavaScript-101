@@ -3581,6 +3581,106 @@ myButton.addEventListener("click", event => {
 });
 ```
 ## NodeLists 📃
+- NodeList = Static collection of HTML elements by (id, class, element)
+- Can be created by using querySelectorAll()
+- Similar to an array, but no (map, filter, reduce) `they do have a forEach() method tho!`
+- NodeList won't update to automatically reflect changes
+- eg.1, 
+
+```html
+<button class="myButtons">Button 1</button>
+<button class="myButtons">Button 2</button>
+<button class="myButtons">Button 3</button>
+<button class="myButtons">Button 4</button>
+```
+
+```css
+/* Little bit css!*/
+.myButtons {
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: hsl(202,100%, 60%);
+    color: white;
+}
+```
+- one way in which we can create a NodeList is by using querySelectorAll() `{as already have been discussed}` but we'll see few more advanced things we can do with NodeLists!
+- We can select Elements by an ID, a class or an element type
+- we will create a NodeList of let buttons....
+
+```js
+let buttons = document.querySelectorAll(".myButtons"); // we can also pass in here the element button or an id!
+
+// now we'll just console.log() it, to see our NodeList of buttons!
+console.log(buttons);
+
+/*
+* In the console window, we do have a length property, a few methods (entries, forEach, item,...)
+*
+* Now we'll change the HTML and CSS properties of all elements within a NodeList
+*/
+
+// CHANGING HTML AND CSS USING NODELIST🚀🚀🚀🚀🚀
+
+buttons.forEach(button => {
+    button.style.backgroundColor = "green"; // color changes to green
+    button.textContent += "😀";
+});
+
+// CLICK EVENT LISTENER
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.style.backgroundColor = "tomato";
+    });
+});
+
+// EVENT LISTENER FOR MOUSEOVER + MOUSEOUT
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 40%)";
+    });
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 60%)";
+    });
+});
+
+// ADD AN ELEMENT
+
+const newButton = document.createElement("button"); // STEP 1 (create new element)
+newButton.textContent = "Button 5"; // STEP 2 (add properties)
+newButton.classList = "myButtons"; // when working with Element's class we work with classList✔️ not class! ❌
+document.body.appendChild(newButton); // STEP 3 (append this element to DOM!) (important thing here! watch in the video!)
+
+// now if we console.log() our NodeList again
+console.log(buttons); 
+// it will still show 4 buttons! (as previous!)
+// this is because, NodeLists are a static collection, they won't update automatically to reflect changes to the DOM
+// Even though button five is within the DOM we would need to manually add it to our NodeList, if we want to work with it
+// So to do that, we can just use querySelectorAll() again and select all elements by the class
+// since, we are reassigning buttons that's why i declared buttons with let instead of const 
+// comment console.log(buttons) after this line------------------------------
+
+buttons = document.querySelectorAll(".myButtons");
+
+console.log(buttons); // now NodeList has 5 elements!
+
+// REMOVE AN ELEMENT
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.remove();
+        // even if you remove all the buttons, the nodelist will show 4 elements! (if you console.log(buttons) at this point! (to fix this, you again have to reassign buttons or update it mannually!)
+        buttons = document.querySelectorAll(".myButtons"); // now works fine! ✔️
+    });
+});
+```
 ## classList 🧾
 ## Rock Paper Scissors 👊
 ## Image Slider 🖼️
