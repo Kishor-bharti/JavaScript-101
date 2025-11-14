@@ -3826,7 +3826,143 @@ myH1.addEventListener("click", event => {
 ## Image Slider 🖼️
 - Find the Source code in the video!
 ## Callback Hell? 🔥
+- Callback Hell : Situation in JavaScript where callbacks are nested within other callbacks to the degree where the code is difficult to read. (If you nest too many callbacks with another callbacks, you code starts to form a pyramid and it's really difficult to work with!)
+- Old pattern to handle asynchronous functions. 
+- Use Promises + async/await to avoid Callback Hell
+- Eg. of Synchronous code:
+```js
+function task1(){
+    console.log("Task 1 complete");
+}
+
+function task2(){
+    console.log("Task 2 complete");
+}
+
+function task3(){
+    console.log("Task 3 complete");
+}
+
+function task4(){
+    console.log("Task 4 complete");
+}
+
+task1();
+task2();
+task3();
+task4();
+console.log("All tasks complete!");
+// runs synchronously! but what if these were aschynchronous?
+```
+
+```js
+function task1(){
+    setTimeout(() => {
+        console.log("Task 1 complete");
+    }, 2000);
+}
+
+function task2(){
+    setTimeout(() => {
+        console.log("Task 2 complete");
+    }, 1000);
+}
+
+function task3(){
+    setTimeout(() => {
+        console.log("Task 3 complete");
+    }, 3000);
+}
+
+function task4(){
+    setTimeout(() => {
+        console.log("Task 4 complete");
+    }, 1500);
+}
+
+task1();
+task2();
+task3();
+task4();
+console.log("All tasks complete!");
+/*
+* OUTPUT: 
+    All tasks complete
+    Task 2 complete
+    Task 4 complete
+    Task 1 complete
+    Task 3 complete
+*/
+
+//  That's the problem with aschynronous code! they can be completed in any time! The rest of the program doesn't for them to be finished!
+// IF we absolutely need our tasks to be complete in order, we can use callback! as:
+
+```
+
+```js
+function task1(callback){
+    setTimeout(() => {
+        console.log("Task 1 complete");
+        callback();
+    }, 2000);
+}
+
+function task2(callback){
+    setTimeout(() => {
+        console.log("Task 2 complete");
+        callback();
+    }, 1000);
+}
+
+function task3(callback){
+    setTimeout(() => {
+        console.log("Task 3 complete");
+        callback();
+    }, 3000);
+}
+
+function task4(callback){
+    setTimeout(() => {
+        console.log("Task 4 complete");
+        callback();
+    }, 1500);
+}
+
+function task5(callback){
+    setTimeout(() => {
+        console.log("Task 5 complete");
+        callback();
+    }, 3500);
+}
+
+function task6(callback){
+    setTimeout(() => {
+        console.log("Task 6 complete");
+        callback();
+    }, 1700);
+}
+
+// callback hell🔥🔥
+task1(() => {
+    task2(() => {
+        task3(() => {
+            task4(() => {
+                task5(() => {
+                    task6(() => {
+                        console.log("All task complete!");
+                    });
+                });
+            });
+        });
+    });
+});
+
+// It's a old pattern to handle asynchronous functions!
+```
+- After 4 levels of nested callbacks, it becomes really difficult to manage or read/understand or to work with, that's why we should avoid callback hells!
+- To avoid callback hells, we use Promises or Async/Await
 ## Promises 🤞
+
 ## Async/Await ⏳
 ## JSON files 📄
 ## Fetch data from an API ↩️
