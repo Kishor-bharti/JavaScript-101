@@ -4380,5 +4380,99 @@ fetch("people.json")
 
 
 ## Fetch data from an API ↩️
+- fetch = Function used for making HTTP requests to fetch resources.
+- (JSON Style data, images, files)
+- Simplifies asynchronous data fetching in JavaScript and used for inteeraacting with APIs t retrieve and send data asynchronously over the web.
+- fetch(url, {options})
+
+```js
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .then(response => console.log(response)) // prints huge response! (gaigantic object!!)
+    .catch(error => console.error(error));
+    // now our next step would be to convert it to a readable format! 
+    // there's a few different metthds, there's array buffer, blob, text and Json (we are interested in JSON)
+    // so our next step would be is to convert this response into json!
+
+{
+    fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .then(response => response.json())
+    .then(data => console.log(data)) // just to see what it is!
+    .catch(error => console.error(error));
+
+    // you can write data.name or data.weight in above console.log()
+}
+
+{
+    // even if the pokimon doesn't exists! how promise won't get rejected! so in that case we'll throw a custome error!
+        fetch("https://pokeapi.co/api/v2/pokemon/kishor")
+            .then(response => {
+
+                if(!response.ok){
+                    throw new Error("Could not fetch resource"); // and now we'll catch it in the catch block!
+                }
+                return response.json();
+            })
+            .then(data => console.log(data.name)) // just to see what it is!
+            .catch(error => console.error(error));
+}
+
+{
+    // if you like to use async/await!
+    
+    fetchData();
+
+    async function fetchData(){
+
+        try{
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon/typhlosion");
+
+            if(!response.ok){
+                throw new Error("Could not fetch resources");
+            }
+
+            const data = await response.json();
+            console.log(data;)
+        }
+        catch(error){
+            console.error(error);
+        }
+    }
+}
+```
+
+- Now, the actual sprites fetching api app!
+
+```html
+<input type="text" id="pokemonName" placeholder="Enter Pokemon name">
+<button onClick = "fetchData()">Fetch Pokemon</button><br>
+
+<img src="" alt = "Pokemon Sprites" id = "pokemonSprite" style = "display: none">
+```
+
+```js
+    async function fetchData(){
+
+        try{
+
+            const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}$`);
+
+            if(!response.ok){
+                throw new Error("Could not fetch resources");
+            }
+
+            const data = await response.json();
+            const pokemonSprite = data.sprites.front_default;
+            const imgElement = document.getElementById("pokemonSprite");
+
+            imgElement.src = pokemonSprite;
+            imgElement.style.displayy = "block";
+        }
+        catch(error){
+            console.error(error);
+        }
+    }
+```
 ## Weather App project ☀️
 - Find the Source code in the video!
