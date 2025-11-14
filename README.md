@@ -3962,6 +3962,169 @@ task1(() => {
 - After 4 levels of nested callbacks, it becomes really difficult to manage or read/understand or to work with, that's why we should avoid callback hells!
 - To avoid callback hells, we use Promises or Async/Await
 ## Promises 🤞
+- Promise = An Object that manages asynchronous operations (such as querying a database, fetching a file, Gathering resources etc... , Asynchronous code basically takes an indeterminate amount of time). Wrap a Promise Object around {asynchronous code} 
+- "I promise to return a value"
+- PENDING -> RESOLVED or REJECTED
+- new Promise((resolve, reject) => {asynchronous code})
+
+```txt
+DO THESE CHORES IN ORDER
+
+1. WALK THE DOG
+2. CLEAN THE KITCHEN
+3. TAKE OUT THE TRASH
+```
+
+```js
+// first we'll do this using the callback functions!
+
+function walkDog(callback){
+    setTimeout(() => {
+        console.log("You walk the dog 🦮");
+        callback();
+    }, 1500);
+}
+
+function cleanKit(callback){
+    setTimeout(() => {
+        console.log("You clean the kitchen");
+        callback();
+    }, 2500);
+}
+
+function takeOutTrash(callback){
+    setTimeout(() => {
+        console.log("You take out the trash");
+        callback();
+    }, 500);
+}
+
+walkDog(() => {
+    cleanKtchen(() => {
+        takeOutTrash(() => console.log("You finished all the chroes!"));
+    });
+});
+
+```
+
+- Now with promises!
+- With all of these async code, we'll wrap it within a promise by using a promise, we don't need callbacks!
+- Instead of using callbacks, we'll use method chaining!
+- We'll method chain our promises! here's how =>
+
+```js
+// how we'll modify these functions is that at the end of each function, we will return an object. 
+// return new Promise(); and follow the given formula [new Promise((resolve, reject) => {...async code!}]
+
+function walkDog(){
+
+    return new Promise((resolve, reject) => {
+        // Do all the asynchronous code!.. (remove the callback!)
+        // If we'd like to display a message when the promise resolves, when it finishes successfully, we will instead call the resolve parameter [resolve is a function and "you walk the dog" instead of it, is the value!]
+        setTimeout(() => {
+            resolve("You walk the dog 🦮");
+        }, 1500);        
+    });
+}
+
+function cleanKit(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("You clean the kitchen");
+        }, 2500);
+    });
+}
+
+function takeOutTrash(){
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("You take out the trash");
+    }, 500);
+    });
+}
+
+// we no longer need to use callback hell! we'll instead use method chaining!
+
+// walkDog().then(value => console.log(value)); // this prints only "You walk the dog"
+
+walkDog().then(value => {console.log(value); return cleanKitchen()})
+         .then(value => {console.log(value); return takeOutTrash()})
+         .then(value => {console.log(value); console.log("You finished all the chores!")});
+
+// Now, it's lot easier to work with, then nesting callbacks!
+
+```
+- Now, sometimes with asynchronous functions depending on the task, the task may Fail! 
+- Let's say we're trying to locate a resource (a file), if we can't locate that file and we're using promises we don't want to resolve that promise, because we couldn't locate that file! Instead, we want to reject!
+- That's what happens when an asynchronous function fails to do something, when inside a promise! so let's change our functions around!
+
+```js
+function walkDog(){
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const dogWalked = true;
+
+            if(dogWalked){
+                resolve("You walk the dog 🦮");
+            } else {
+                reject("You DIDN'T walk the dog!");
+            }
+
+        }, 1500);        
+    });
+}
+
+function cleanKit(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const kitchenCleaned = true;
+
+            if(kitchenCleaned){
+                resolve("You clean the kitchen");
+            } else{
+                reject("You DIDN't clean the kitchen");
+            }
+        }, 2500);
+    });
+}
+
+function takeOutTrash(){
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+        const trashTakenOut = false;
+
+        if(trashTakenOut){
+            resolve("You take out the trash");
+        } else{
+            reject("You DIDN't take out the Trash");
+        }
+
+    }, 500);
+    });
+}
+
+// If a promise might reject!, there's one more method we need to add to the end of this chain!
+
+walkDog().then(value => {console.log(value); return cleanKitchen()})
+         .then(value => {console.log(value); return takeOutTrash()})
+         .then(value => {console.log(value); console.log("You finished all the chores!")})
+         .catch(error => console.error(error));
+
+
+/*
+* OUTPUT: 
+    You walked the dog
+    You clean the kitchen
+    ❗❗❗ERROR: You DIDN'T take out the trash!
+*/
+
+// if the first task was false! (and rest all are true!), or if the first promise is rejected then we even attempt to resolve these other promises!
+
+```
 
 ## Async/Await ⏳
 ## JSON files 📄
