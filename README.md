@@ -4206,6 +4206,179 @@ doChores();
 
 ```
 ## JSON files 📄
+- JSON = (JavaScript Object Notation) data-interchange format
+- Used for exchanging data between a server and a web application
+- JSON files {key:value} OR [value1, value2, value3]
+
+- JSON.stringify() = converts a JS object to a JSON string.
+- JSON.parse() = converts a JSON string to a JS object
+
+```json
+// names.json
+// array!
+["Spongebob", "Patrick", "Squidward", "Sandy"] // this is a valid json format!
+```
+
+```json
+// person.json
+// object!
+{
+    "name" : "Spongebob",
+    "age" : 30, 
+    "isEmployed" : true,
+    "hobbies" : ["Jellyfishing", "karate", "cooking"]
+} // this is also a valid format (objects can even have arrays as one of their values as above)
+```
+
+```json
+// people.json
+// this will be an array of objects!
+[{
+    "name" : "Spongebob",
+    "age" : 30, 
+    "isEmployed" : true
+},
+{
+    "name" : "Patrick",
+    "age" : 34, 
+    "isEmployed" : false
+},
+{
+    "name" : "Squidward",
+    "age" : 50, 
+    "isEmployed" : true
+},
+{
+    "name" : "Sandy",
+    "age" : 27, 
+    "isEmployed" : false
+}]
+```
+- JSON.stringify() = converts a JS object to a JSON string.
+- JSON.parse() = converts a JSON string to a JS object
+
+- So, Json formats, they're one long string to represent that object or array.
+- Using the stringify() method of JSON, we can convert a JS object or an array into a JSON string!
+
+```js
+// so let's copy the array of names!
+const names = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+
+// we'll convert it to a Json string!
+const jsonString = JSON.stringify(names); // JSON is a built-in object that's provided to us to work with Json
+
+console.log(names); // If we console.log() our names before stringifying it, we will have an array of strings to work with!
+/*
+*   OUTPUT:
+*       (4) ['Spongebob', 'Patrick' , 'Squidward', 'Sandy'] 
+          0: "Spongebob"
+          1: "Patrick"
+          2: "Squidward"
+          3: "Sandy"
+          length: 4 
+*/
+
+console.log(jsonString);// after using stringify() method on names, we'll be given one long string to represent this array!
+/*
+*  OUTPUT:
+    ["Spongebob", "Patrick" , "Squidward", "Sandy"]
+*/
+
+{
+    // if we were to use this on an object =>
+    const person = {
+    "name" : "Spongebob",
+    "age" : 30, 
+    "isEmployed" : true,
+    "hobbies" : ["Jellyfishing", "karate", "cooking"]
+    };
+
+    const jsonString = JSON.stringify(person);
+
+    console.log(person);
+    console.log(jsonString);
+
+}
+
+{
+    // let's stringify our people it'san array of objects!
+    const people = [{
+    "name" : "Spongebob",
+    "age" : 30, 
+    "isEmployed" : true
+},
+{
+    "name" : "Patrick",
+    "age" : 34, 
+    "isEmployed" : false
+},
+{
+    "name" : "Squidward",
+    "age" : 50, 
+    "isEmployed" : true
+},
+{
+    "name" : "Sandy",
+    "age" : 27, 
+    "isEmployed" : false
+}];
+
+// console.log(people) before it!
+    const jsonString = JSON.stringify(people);
+    console.log(jsonString); // one extremely long string!
+}
+
+```
+
+- Now, we'll use JSON.parse() which converts a JSON string to a JS object!
+
+```js
+// you just need to enclose the JS object within `` to parse it in a string!
+const jsonNames = `["Spongebob", "Patrick", "Squidward", "Sandy"];`
+const jsonPerson = `{ "name" : "Spongebob", "age" : 30, "isEmployed" : true,"hobbies" : ["Jellyfishing", "karate", "cooking"] };`
+const jsonPeople = `[{ "name" : "Spongebob", "age" : 30, "isEmployed" : true },
+                 { "name" : "Patrick", "age" : 34, "isEmployed" : false },
+                 { "name" : "Squidward", "age" : 50, "isEmployed" : true },
+                 { "name" : "Sandy", "age" : 27, "isEmployed" : false }];`
+
+const parseData = JSON.parse(jsonNames);
+
+// console.log(jsonNames); // this will print a string representation of an array!
+console.log(parseDate); // it becomes a JS array!
+
+const parseData = JSON.parse(jsonPerson); 
+console.log(jsonPerson); // JS string!
+console.log(parseData); // JS object
+
+const parseData = JSON.parse(jsonPeople);
+console.log(jsonPeople); // JS string! 
+console.log(parseData); // Array of object!
+```
+
+```js
+// now we'll fetch() the json files!
+// fetch is a function, as an argument, we can pass an absolute or relative path or a url! (next topic!) 
+fetch("person.json") // relative file (these files are right next to each other!) (fetch returns a promise! we'll follow this with .then() method!)
+    .then(response => response.json()) // we'll be provided with a response object! we'll convert it to a json format using the .json() method and this response.json() will also return a promise!
+    .then(value => console.log(value)) // do we need semi colon here??
+
+// now we have successfully fetched a json file!
+// now change the relative file path to other twos and observe the result!
+
+// if we want to iterate through the array of objects, we can use the array's forEach() method!
+fetch("people.json")
+    .then(response => response.json())
+    .then(values => values.forEach(value => console.log(value.name)))
+    .catch(error => console.error(error));
+
+// OUTPUT: Spongebob
+// Patrick
+// Squidward
+// Sandy
+
+```
+
+
 ## Fetch data from an API ↩️
 ## Weather App project ☀️
 - Find the Source code in the video!
