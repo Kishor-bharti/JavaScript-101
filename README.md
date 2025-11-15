@@ -5,6 +5,100 @@ BY BroCode [watch](https://www.youtube.com/watch?v=lfmg-EJ8gm4&t=4618s)
 
 ***Watch the above video and follow through these notes for better understanding😎🚀🔥***
 
+## Table of Content
+<table>
+<tr>
+<td>
+
+<!-- Column 1 -->
+
+[JavaScript tutorial for beginners 🌐](#javascript-tutorial-for-beginners)  
+[Variables 📦](#variables)  
+[Arithmetic operators ➕](#arithmetic-operators)  
+[Accept user input 💬](#accept-user-input)  
+[Type conversion 💱](#type-conversion)  
+[Constants 🚫](#constants)  
+[⭐ Counter program 🔢](#counter-program)  
+[Math object 🧮](#math-object)  
+[Random number generator ⁉](#random-number-generator)  
+[If statements 🤔](#if-statements)  
+[Checked property ✅](#checked-property)  
+[Ternary operator ❓](#ternary-operator)  
+[Switches 💡](#switches)  
+[String methods 🧵](#string-methods)  
+[String slicing ✂️](#string-slicing)  
+[Method chaining ⛓](#method-chaining)  
+[Logical operators ❗](#logical-operators)  
+[Strict equality 🟰](#strict-equality)  
+[While loops 🔁](#while-loops)  
+[For loops 🔂](#for-loops)  
+[⭐ Number guessing game ↕](#number-guessing-game)  
+[Functions 📞](#functions)  
+[Variable scope 🏠](#variable-scope)  
+[⭐ Temperature conversion program 🌡️](#temperature-conversion-program)  
+[Arrays 🗃](#arrays)  
+[Spread operator 📖](#spread-operator)  
+[Rest parameters 🗄](#rest-parameters)  
+[⭐ Dice Roller program 🎲](#dice-roller-program)  
+[⭐ Random password generator 🔑](#random-password-generator)  
+[Callbacks 🤙](#callbacks)  
+[forEach() ➿](#foreach)  
+[map() 🗺](#map)  
+[filter() 🚰](#filter)  
+[reduce() ♻](#reduce)  
+[Function expressions 🐣](#function-expressions)  
+[Arrow functions 🎯](#arrow-functions)  
+[JavaScript Objects 🧍](#javascript-objects)  
+[What is THIS 👈](#what-is-this)  
+
+</td>
+<td>
+
+<!-- Column 2 -->
+
+[Constructors 🛠](#constructors)  
+[Classes 🏭](#classes)  
+[STATIC keyword ⚡](#static-keyword)  
+[Inheritance 🐇](#inheritance)  
+[SUPER keyword 🦸‍♂️](#super-keyword)  
+[Getters & Setters 📐](#getters--setters)  
+[Destructuring 💥](#destructuring)  
+[Nested objects 📫](#nested-objects)  
+[Arrays of objects 🍎](#arrays-of-objects)  
+[Sorting 🗃](#sorting)  
+[Shuffle an array 🔀](#shuffle-an-array)  
+[Dates 📅](#dates)  
+[Closures 🔒](#closures)  
+[setTimeout() ⏰](#settimeout)  
+[⭐ Digital Clock program 🕐](#digital-clock-program)  
+[⭐ Stopwatch program ⏱](#stopwatch-program)  
+[ES6 Modules 🚢](#es6-modules)  
+[Asynchronous code 💤](#asynchronous-code)  
+[Error handling ⚠](#error-handling)  
+[⭐ Calculator program 🖩](#calculator-program)  
+[What is the DOM? 🌳](#what-is-the-dom)  
+[Element selectors 📑](#element-selectors)  
+[DOM navigation 🧭](#dom-navigation)  
+[Add & change HTML 🛠️](#add--change-html)  
+[Mouse events 🖱](#mouse-events)  
+[Key events ⌨](#key-events)  
+[Hide/show HTML 🖼](#hideshow-html)  
+[NodeLists 📃](#nodelists)  
+[classList 🧾](#classlist)  
+[⭐ Rock Paper Scissors 👊](#rock-paper-scissors)  
+[⭐ Image Slider 🖼️](#image-slider)  
+[Callback Hell? 🔥](#callback-hell)  
+[Promises 🤞](#promises)  
+[Async/Await ⏳](#asyncawait)  
+[JSON files 📄](#json-files)  
+[Fetch data from an API ↩️](#fetch-data-from-an-api)  
+[⭐ Weather App project ☀️](#weather-app-project)  
+
+</td>
+</tr>
+</table>
+
+
 ## Starting...
 * JavaScript is a programming language, used to create Dynamic and Interactive web pages!
 * Js runs on web browsers
