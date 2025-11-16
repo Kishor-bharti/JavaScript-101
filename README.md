@@ -254,7 +254,7 @@ let result  = 6/2 ** (2+5);
 
 > how about making a program using stack for it??
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Accept user input
 
@@ -297,7 +297,7 @@ document.getElementById("mySubmit").onclick = function(){
 }
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Type conversion
 
@@ -364,7 +364,7 @@ undefined string
 false 'boolean'
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Constants
 
@@ -414,7 +414,7 @@ document.getElementById("mySubmit").onclick = function(){
 }
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Counter program
 
@@ -510,7 +510,7 @@ let min = Math.min(x,y,z);
 console.log(z);
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Random number generator
 
@@ -569,7 +569,7 @@ myButton.onclick = function(){
 
 * Now, make 3 Labels with different numbers for roll btn yourself!
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## If statements
 
@@ -626,7 +626,7 @@ else{}
 ```
 * Now, create it using html! yourself!
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Checked property
 * .checked = property that determines the checked state of an HTML checkbox or radio button element
@@ -678,7 +678,7 @@ mySubmit.onclick = function(){
 
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Ternary operator
 * A shortccut to if{} and else{} statements helps to assign a variable based on a condition.
@@ -718,7 +718,7 @@ let discount = purchaseAmount >= 100 ? 10 : 0;
 console.log(`Your total is $${purchaseAmount - purchaseAmount * (discount / 100)}`);
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Switches
 - SWITCH = can be an efficient replacement to many else if statements
@@ -791,7 +791,7 @@ switch(true){
 console.log(letterGrade);
 
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## String methods
 * string methods = allow you to manipulate and work with text (also known as strings)
@@ -839,7 +839,7 @@ console.log(phoneNumber);
 phoneNumber = phoneNumber.padStart(15, "0");
 phoneNumber = phoneNumber.padEnd(15, "0");
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## String slicing
 * String slicing is the process of creating a substring from a portion of another string. (This won't alter the origin string)
@@ -878,7 +878,7 @@ const email = "kishor010@gmail.com";
 let userName = email.slice(0, email.indexOf("@"));
 let extension = email.slice(email.indexOf("@")+1);
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Method chaining
 - Method Chaining (Programming technique) = Calling one method after another in one continuous line of code.
@@ -907,7 +907,7 @@ userName = userName.trim().charAt(0).toUpperCase() + userName.trim().slice(1).to
 
 console.log(userName); // Works the same!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Logical operators
 - logical operators = used to combine or manipulate boolean values (true or false)
@@ -943,7 +943,7 @@ if(!isSunny){
 }
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Strict equality
 - = assignmetn operator
@@ -952,7 +952,7 @@ if(!isSunny){
 - != Inequality operator
 - !== strict inequality operator
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## While loops
 - while loop = repeat some code WHILE some condition is true
@@ -1000,7 +1000,7 @@ while(!loggedIn){
     }
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## For loops
 - For loop = repeat some code a LIMITED amount of times
@@ -1010,7 +1010,7 @@ for(let i = 0; i <= 2; ++i){
     console.log(i);
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Number guessing game
 - try playing with the `Math.random()` function and find out why this code below generates a random number between the specified range!
@@ -1057,7 +1057,7 @@ while(running){
 
 
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 
 ## Functions
@@ -1107,7 +1107,7 @@ console.log(answer);
 
 // similarly, make subtract, multiply, divide and isEven, isValidEmail functions yourself!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Variable scope
 - variable scope = where a variable is recognized and accessible (local vs global)
@@ -1138,7 +1138,7 @@ function function2(){
 
 - It is not recommended to have a lot of global variables as it is accessible to every functions and are mutable which makes debugging a tedious task later! (Just like how functional programming avoids having global mutable variables!)
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Temperature conversion program
 - Check the source code in video!
@@ -1172,7 +1172,7 @@ for(let fruit of fruits){
 fruits.sort(); // sort elements in alphabetical order!
 fruits.sort().reverse(); // for reverse order!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Spread operator
 - Spread operator = ... allows an iterable such as an array or string to be expanded into separate elements (unpacks the elements)
@@ -1222,7 +1222,7 @@ console.log(foods);
 // it also have this ability to append new data in the array, as:
 vegies = [...fruits, ...vegies, "eggs", "milk"];
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Rest parameters
 - Rest parameters = {...rest} allow a function work with a variable number of arguments by bundling them into an array.
@@ -1299,7 +1299,7 @@ const fullName = combineStrings("Mr." , "Spongebob", "Squarepants", "III");
 
 console.log(fullName);
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Dice Roller program
 - Check the source code in video
@@ -1412,7 +1412,7 @@ function displayPage(result){
 sum(displayPage, 2, 3); // DOM: 5
 
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## forEach()
 - forEach() = method used to iterate over the elements of an array and apply a specified function (callback) to each element
@@ -1468,7 +1468,7 @@ function display(element)){
     console.log(element);
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## map()
 - .map() = accepts a callback and applies that function to each element of an array, then return a new array. 
@@ -1523,7 +1523,7 @@ function formatDates(element){
     return `${parts[1]}/${parts[2]}/${parts[0]}`;
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 
 ## filter()
@@ -1578,7 +1578,7 @@ function getLongWords(element){
     return element.length > 6;
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## reduce()
 - reduce() = reduce the elements of an array to a single value
@@ -1613,7 +1613,7 @@ function getMin(accumulator, element){
     return Math.min(accumulator, element);
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Function expressions
 - Function declaration = define a reusable block of code that performs a specific task
@@ -1710,7 +1710,7 @@ console.log(total);
 4. Event Listeners
 (We'll discuss it later!)
 
-[Check Content Table](#table-of-Content)
+[Check Content Table⬆️](#table-of-Content)
 
 ## Arrow functions
 - Arrow functions = a concise way to write function expressions, good for simple functions that you use only once
@@ -1794,7 +1794,7 @@ console.log(evenNums);
 console.log(oddNums);
 console.log(total);
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## JavaScript Objects
 - Object = A collection of related properties and/or methods, Can represent real world objects (people, products, places)
@@ -1833,7 +1833,7 @@ console.log(person2.age);
 console.log(person2.isEmployed);
 person2.sayHello();
 ``` 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## What is THIS
 - this = reference to the object where THIS is used (the object depends on the immediate context)
@@ -1879,7 +1879,7 @@ person1.eat(); // output:  is eating undefined
 - when you use `this` within an arrow function, it's making a reference to that window object still
 - Our window object does have a name, that's why it's appearing empty but favFood is undefined because our window object doesn't have a favFood property!
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Constructors
 - constructor = special method for defining the properties and methods of objects
@@ -1907,7 +1907,7 @@ car1.drive();
 
 //similarly, make more cars!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Classes
 - class = (ES6 feature) provides a more structured and cleaner way to work with objects compared to traditional constructor functions
@@ -1973,7 +1973,7 @@ console.log(`Total price (with tax): $${total.toFixed(2)}`);
 
 // similarly, create more products!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## STATIC keyword
 - Static = keyword that defines properties or methods that belong to a class itself rather than the objects created from that class (class own anything static, not the objects)
@@ -2040,7 +2040,7 @@ user3.sayHello();
 console.log(User.userCount); // prints : 1
 User.getUserCount();
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Inheritance
 - inheritance = allows a new class to inherit properties and methods from an existing class (parent -> child) helps with code reusability
@@ -2111,7 +2111,7 @@ class Hawk extends Animal{
     }
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## SUPER keyword
 - super = keyword is used in classes to call the constructor or access the properties and methods of a parent (aka superclass)
@@ -2264,7 +2264,7 @@ rabbit.run();
 fish.swim();
 hawk.fly();
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Getters & Setters
 - getter = special method that makes a property readable
@@ -2337,7 +2337,7 @@ class Rectangle{
 ```
 - See the second example in the video!
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Destructuring
 - Destructuring =  extract values from arrays and objects, then assign them to variables in a convenient way
@@ -2456,7 +2456,7 @@ console.log(person2);
 // again, we can set the default value!
 // function displayPerson({firstName, lastName, age, job="unemployed"})
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Nested objects
 - nested objects = Objects inside of other Objects.
@@ -2533,7 +2533,7 @@ console.log(person1.age); // 30
 console.log(person1.address); // {address object}
 console.log(person1.address.street);
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Arrays of objects
 ```js
@@ -2587,7 +2587,7 @@ console.log(maxFruit);
 console.log(minFruit);
 
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Sorting
 - sort() = method used to sort elements of an array in place. 
@@ -2652,7 +2652,7 @@ people.sort((a,b) => a.name.localeCompare(b.name));
 // this method will examine two strings for lexicographic order!
 // for reverse => b.name.localeCompare(a.name);
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Shuffle an array
 - EXTRA LECTURE!!
@@ -2673,7 +2673,7 @@ function shuffle(array){
     }
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Dates
 - Date objects = Objects that contain values that represent dates and times
@@ -2739,7 +2739,7 @@ function shuffle(array){
     }
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Closures
 - closures = A function defined inside of another function, the inner function has access to the variables and scope of the outer function.
@@ -2902,7 +2902,7 @@ outer(); // output: Hello
     // now you cannot access the score property from outside!
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## setTimeout()
 - setTimeout() = function in JavaScript that allows you to schedule the execution of a function after an amount of time (milliseconds)
@@ -2957,7 +2957,7 @@ function clearTimer(){
     console.log("Cleared");
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Digital Clock program
 - Source code in the video!
@@ -3019,7 +3019,7 @@ console.log(`${circumference.toFixed(2)}cm`);
 console.log(`${area.toFixed(2)}cm^2`);
 console.log(`${volume.toFixed(2)}cm^3`);
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Asynchronous code
 - Synchronous = Executes line by line consecutively in a sequential manner. Code that waits for an operation to complete. (Has order of operation!)
@@ -3071,7 +3071,7 @@ func1(func2);
 ```
 - we'll discuss how to handle asynchronous codes via Promises, Async/Await later!
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Error handling
 - Error = An Object that is created to represented a problem that occurs
@@ -3159,7 +3159,7 @@ func1(func2);
     }
 }
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Calculator program
 - Source code in the video!
@@ -3204,7 +3204,7 @@ when username is empty:
 when username is `something`:
     welcome something
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Element selectors
 - Element selectors = Methods used to target and manipulate HTML elements 
@@ -3339,7 +3339,7 @@ foods.forEach(food => {
     food.style.backgroundColor = "yellow"; // observe the results!
 });
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## DOM navigation
 - DOM Navigation = The process of navigating through the structure of an HTML document using JavaScript.
@@ -3476,7 +3476,7 @@ Array.from(children).forEach(child => {
 
 children[1].style.backgroundColor = "yellow";
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 
 ## Add & change HTML
@@ -3564,7 +3564,7 @@ document.body.removeChild(newH1); // works when the newH1 is in the body
 ```js
 // CHECK 2ND EXAMPLE IN THE VIDEO!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Mouse events
 - eventListener = Listen for specific events to create interactive web pages
@@ -3638,7 +3638,7 @@ myBox.addEventListener("click", changeColor);
 
 - Now, tryna implement this effect using a button yourself!😁
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Key events
 - eventListener = Listen for specific events to create interactive web pages 
@@ -3737,7 +3737,7 @@ document.addEventListener("keydown", event => {
 
 // now try to merge these last two projects together!
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Hide/show HTML
 - for this, you'll need an image to work with (we'll make it show or hide in our html!)
@@ -3781,7 +3781,7 @@ myButton.addEventListener("click", event => {
 
 });
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## NodeLists
 - NodeList = Static collection of HTML elements by (id, class, element)
@@ -3884,7 +3884,7 @@ buttons.forEach(button => {
     });
 });
 ```
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## classList
 - classList = Element property in JavaScript used to interact with an element's list of classes (CSS classes), Allows you to make reusable classes for many elements across your webpage.
@@ -4027,7 +4027,7 @@ myH1.addEventListener("click", event => {
 ```
 - check the challenge round! @ 9:53:
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Rock Paper Scissors
 - Find the Source code in the video!
@@ -4170,7 +4170,7 @@ task1(() => {
 - After 4 levels of nested callbacks, it becomes really difficult to manage or read/understand or to work with, that's why we should avoid callback hells!
 - To avoid callback hells, we use Promises or Async/Await
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Promises
 - Promise = An Object that manages asynchronous operations (such as querying a database, fetching a file, Gathering resources etc... , Asynchronous code basically takes an indeterminate amount of time). Wrap a Promise Object around {asynchronous code} 
@@ -4338,7 +4338,7 @@ walkDog().then(value => {console.log(value); return cleanKitchen()})
 
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Async/Await
 - Async/Await = `Async = makes a function return a promise`  `Await = makes an async function wait for a promise`
@@ -4419,7 +4419,7 @@ doChores();
 
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## JSON files
 - JSON = (JavaScript Object Notation) data-interchange format
@@ -4594,7 +4594,7 @@ fetch("people.json")
 
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Fetch data from an API
 - fetch = Function used for making HTTP requests to fetch resources.
@@ -4692,7 +4692,7 @@ fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
     }
 ```
 
-[Check Content Table](#table-of-Content)
+[Check Content Table ⬆️](#table-of-Content)
 
 ## Weather App project
 - Find the Source code in the video!
